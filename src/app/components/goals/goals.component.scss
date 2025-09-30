@@ -1,0 +1,69 @@
+﻿.goals-content {
+  --background: var(--ion-color-background);
+  
+  .content-container {
+    padding: 16px;
+  }
+  
+  .goals-intro {
+    text-align: center;
+    margin-bottom: 24px;
+    
+    h2 {
+      color: var(--ion-color-primary);
+      margin-bottom: 8px;
+    }
+  }
+  
+  .progress-section {
+    margin-bottom: 24px;
+    
+    .progress-card {
+      --background: #ffffff;
+      text-align: center;
+      
+      .progress-text {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--ion-color-primary);
+        margin-bottom: 8px;
+      }
+      
+      .progress-bar {
+        margin: 16px 0;
+      }
+    }
+  }
+  
+  .goals-list {
+    margin-bottom: 24px;
+  }
+  
+  .goal-card {
+    --background: #ffffff;
+    margin-bottom: 12px;
+    
+    .goal-item {
+      --padding-start: 16px;
+      --padding-end: 16px;
+      
+      .goal-label {
+        font-size: 1.1em;
+        line-height: 1.4;
+      }
+      
+      .goal-due-date {
+        font-size: 0.9em;
+        color: var(--ion-color-medium);
+        margin-top: 4px;
+      }
+    }
+  }
+  
+  .add-goal-button {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+    --border-radius: 12px;
+    margin-top: 16px;
+  }
+}

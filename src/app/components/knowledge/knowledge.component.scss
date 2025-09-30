@@ -1,0 +1,69 @@
+﻿.knowledge-content {
+  --background: var(--ion-color-background);
+  
+  .content-container {
+    padding: 16px;
+  }
+  
+  .knowledge-intro {
+    text-align: center;
+    margin-bottom: 24px;
+    
+    h2 {
+      color: var(--ion-color-primary);
+      margin-bottom: 8px;
+    }
+  }
+  
+  .articles-list {
+    margin-bottom: 24px;
+  }
+  
+  .article-card {
+    --background: #ffffff;
+    margin-bottom: 16px;
+    
+    .article-excerpt {
+      color: var(--ion-color-medium);
+      line-height: 1.5;
+      margin: 12px 0;
+    }
+    
+    .article-body {
+      padding: 16px;
+      line-height: 1.6;
+      color: var(--ion-color-text);
+    }
+  }
+  
+  .tips-card {
+    --background: #f0f8ff;
+    
+    h3 {
+      color: var(--ion-color-primary);
+      margin-bottom: 16px;
+    }
+    
+    .tips-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #e0e0e0;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        &:before {
+          content: "";
+          color: var(--ion-color-primary);
+          font-weight: bold;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}

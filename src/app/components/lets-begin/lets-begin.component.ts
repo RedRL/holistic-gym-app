@@ -1,0 +1,86 @@
+﻿import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonChip, IonProgressBar } from '@ionic/angular/standalone';
+import { DataService, Exercise, Completion } from '../../services/data.service';
+
+@Component({
+  selector: 'app-lets-begin',
+  standalone: true,
+  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonChip, IonProgressBar, CommonModule],
+  templateUrl: './lets-begin.component.html',
+  styleUrls: ['./lets-begin.component.scss']
+})
+export class LetsBeginComponent implements OnInit {
+  selectedLevel: 'beginner' | 'advanced' | 'grand' = 'beginner';
+  exercises: Exercise[] = [];
+  completedToday: number = 0;
+  totalExercises: number = 2;
+  todayProgress: number = 0;
+
+  constructor(
+    private router: Router,
+    private dataService: DataService
+  ) {}
+
+  ngOnInit() {
+    this.loadExercises();
+    this.updateProgress();
+  }
+
+  selectLevel(level: 'beginner' | 'advanced' | 'grand') {
+    this.selectedLevel = level;
+    this.dataService.set('selectedLevel', level);
+    this.loadExercises();
+  }
+
+  loadExercises() {
+    this.exercises = this.dataService.getExercises(this.selectedLevel);
+  }
+
+  startExercise(exercise: Exercise) {
+    if (exercise.id === 'breathing') {
+      this.startBreathingExercise(exercise);
+    } else if (exercise.id === 'memory') {
+      this.startMemoryGame(exercise);
+    }
+  }
+
+  startBreathingExercise(exercise: Exercise) {
+    // Navigate to breathing exercise component
+    this.router.navigate(['/breathing-exercise'], { 
+      queryParams: { 
+        duration: exercise.duration,
+        level: this.selectedLevel 
+      } 
+    });
+  }
+
+  startMemoryGame(exercise: Exercise) {
+    // Navigate to memory game component
+    this.router.navigate(['/memory-game'], { 
+      queryParams: { 
+        level: this.selectedLevel 
+      } 
+    });
+  }
+
+  updateProgress() {
+    const todayCompletions = this.dataService.getTodayProgress();
+    this.completedToday = todayCompletions.length;
+    this.todayProgress = this.completedToday / this.totalExercises;
+  }
+
+  completeExercise(exerciseId: string, durationSec: number, score?: number) {
+    const completion: Completion = {
+      date: new Date().toISOString().split('T')[0],
+      exerciseId,
+      level: this.selectedLevel,
+      durationSec,
+      score
+    };
+    
+    this.dataService.addCompletion(completion);
+    this.updateProgress();
+  }
+}

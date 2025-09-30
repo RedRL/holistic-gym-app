@@ -1,0 +1,86 @@
+﻿<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="settings-content">
+  <div class="content-container">
+    <div class="settings-intro">
+      <h2>App Settings</h2>
+      <p>Customize your Brain Power experience</p>
+    </div>
+    
+    <div class="settings-sections">
+      <!-- Accessibility Settings -->
+      <ion-card class="settings-card">
+        <ion-card-content>
+          <h3>Accessibility</h3>
+          
+          <ion-item lines="none">
+            <ion-label>
+              <h4>Large Text Mode</h4>
+              <p>Increase font size for better readability</p>
+            </ion-label>
+            <ion-toggle 
+              slot="end" 
+              [(ngModel)]="largeTextMode"
+              (ionChange)="toggleLargeText()">
+            </ion-toggle>
+          </ion-item>
+          
+          <ion-item lines="none">
+            <ion-label>
+              <h4>High Contrast</h4>
+              <p>Use high contrast colors for better visibility</p>
+            </ion-label>
+            <ion-toggle 
+              slot="end" 
+              [(ngModel)]="highContrastMode"
+              (ionChange)="toggleHighContrast()">
+            </ion-toggle>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      
+      <!-- Data Management -->
+      <ion-card class="settings-card">
+        <ion-card-content>
+          <h3>Data Management</h3>
+          
+          <ion-item lines="none">
+            <ion-label>
+              <h4>Clear All Data</h4>
+              <p>Remove all stored data and reset the app</p>
+            </ion-label>
+            <ion-button 
+              slot="end" 
+              fill="outline" 
+              color="danger"
+              (click)="showClearDataAlert()">
+              Clear
+            </ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      
+      <!-- App Information -->
+      <ion-card class="settings-card">
+        <ion-card-content>
+          <h3>App Information</h3>
+          <div class="app-info">
+            <p><strong>Version:</strong> 1.0.0</p>
+            <p><strong>Build:</strong> MVP</p>
+            <p><strong>Last Updated:</strong> {{ lastUpdated }}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+    <div class="settings-footer">
+      <p class="footer-text">
+        Brain Power - Holistic Gym for the Body, Mind & Brain
+      </p>
+    </div>
+  </div>
+</ion-content>

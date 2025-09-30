@@ -1,0 +1,41 @@
+﻿<ion-header>
+  <ion-toolbar>
+    <ion-title>Complete Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="register-content">
+  <div class="form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="stacked">Name *</ion-label>
+        <ion-input formControlName="name" placeholder="Enter your name"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Age *</ion-label>
+        <ion-input formControlName="age" type="number" placeholder="Enter your age"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Enter your email"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Phone</ion-label>
+        <ion-input formControlName="phone" placeholder="Enter your phone"></ion-input>
+      </ion-item>
+      
+      <div class="button-container">
+        <ion-button expand="block" type="submit" [disabled]="!registerForm.valid" class="primary-button">
+          Continue
+        </ion-button>
+        
+        <ion-button expand="block" fill="outline" (click)="skipRegistration()" class="secondary-button">
+          Skip for now
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

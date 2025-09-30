@@ -1,0 +1,20 @@
+﻿import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonAccordion, IonAccordionGroup, IonItem, IonLabel } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-contact',
+  standalone: true,
+  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonAccordion, IonAccordionGroup, IonItem, IonLabel],
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
+})
+export class ContactComponent {
+  
+  sendEmail() {
+    const subject = 'Brain Power App Support';
+    const body = 'Hello,\n\nI need help with the Brain Power app. Please provide assistance with:\n\n';
+    const mailtoLink = `mailto:support@brainpower.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink, '_blank');
+  }
+}

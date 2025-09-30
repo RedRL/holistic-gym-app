@@ -1,0 +1,70 @@
+﻿.contact-content {
+  --background: var(--ion-color-background);
+  
+  .content-container {
+    padding: 16px;
+  }
+  
+  .contact-intro {
+    text-align: center;
+    margin-bottom: 24px;
+    
+    h2 {
+      color: var(--ion-color-primary);
+      margin-bottom: 8px;
+    }
+  }
+  
+  .contact-options {
+    margin-bottom: 32px;
+  }
+  
+  .contact-card {
+    --background: #ffffff;
+    
+    h3 {
+      color: var(--ion-color-primary);
+      margin-bottom: 8px;
+    }
+  }
+  
+  .contact-button {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+    --border-radius: 12px;
+    margin-top: 16px;
+  }
+  
+  .faq-section {
+    margin-bottom: 24px;
+    
+    h3 {
+      color: var(--ion-color-primary);
+      margin-bottom: 16px;
+    }
+  }
+  
+  .faq-answer {
+    padding: 16px;
+    line-height: 1.6;
+    color: var(--ion-color-text);
+  }
+  
+  .support-info {
+    margin-bottom: 24px;
+  }
+  
+  .support-card {
+    --background: #f0f8ff;
+    
+    h3 {
+      color: var(--ion-color-primary);
+      margin-bottom: 12px;
+    }
+    
+    p {
+      margin: 4px 0;
+      color: var(--ion-color-text);
+    }
+  }
+}

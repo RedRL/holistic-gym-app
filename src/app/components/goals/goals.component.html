@@ -1,0 +1,62 @@
+﻿<ion-header>
+  <ion-toolbar>
+    <ion-title>Goals & Challenges</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="goals-content">
+  <div class="content-container">
+    <div class="goals-intro">
+      <h2>Your Daily Goals</h2>
+      <p>Track your progress and stay motivated with these achievable goals.</p>
+    </div>
+    
+    <div class="goals-list">
+      <ion-card *ngFor="let goal of goals" class="goal-card">
+        <ion-card-content>
+          <ion-item lines="none" class="goal-item">
+            <ion-checkbox 
+              slot="start" 
+              [(ngModel)]="goal.done"
+              (ionChange)="toggleGoal(goal)">
+            </ion-checkbox>
+            <ion-label class="goal-label" [class.completed]="goal.done">
+              {{ goal.title }}
+            </ion-label>
+          </ion-item>
+          <div class="goal-due-date" *ngIf="goal.dueDate">
+            <small>Due: {{ goal.dueDate | date:'short' }}</small>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+    <div class="progress-summary">
+      <ion-card class="summary-card">
+        <ion-card-content>
+          <h3>Today's Progress</h3>
+          <div class="progress-stats">
+            <div class="stat">
+              <span class="stat-number">{{ completedGoals }}</span>
+              <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">{{ totalGoals }}</span>
+              <span class="stat-label">Total Goals</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">{{ completionPercentage }}%</span>
+              <span class="stat-label">Complete</span>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+    <div class="add-goal-section">
+      <ion-button expand="block" fill="outline" (click)="addNewGoal()">
+        Add New Goal
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,69 @@
+﻿<ion-header>
+  <ion-toolbar>
+    <ion-title>AI Assistant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-content">
+  <div class="chat-container">
+    <!-- Chat Messages -->
+    <div class="messages-container">
+      <div 
+        *ngFor="let message of messages" 
+        class="message"
+        [ngClass]="{'bot-message': message.isBot, 'user-message': !message.isBot}">
+        <div class="message-bubble">
+          {{ message.text }}
+        </div>
+        <div class="message-time">
+          {{ message.timestamp | date:'short' }}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Quick Reply Chips -->
+    <div class="quick-replies" *ngIf="messages.length === 0">
+      <h4>Quick Questions:</h4>
+      <div class="chips-container">
+        <ion-chip (click)="sendQuickReply('Sleep tips')">
+          Sleep tips
+        </ion-chip>
+        <ion-chip (click)="sendQuickReply('Breathing basics')">
+          Breathing basics
+        </ion-chip>
+        <ion-chip (click)="sendQuickReply('Pain relief basics')">
+          Pain relief basics
+        </ion-chip>
+      </div>
+    </div>
+    
+    <!-- Input Area -->
+    <div class="input-area">
+      <ion-item class="input-item">
+        <ion-input 
+          [(ngModel)]="currentMessage"
+          placeholder="Ask me anything about your health..."
+          (keyup.enter)="sendMessage()">
+        </ion-input>
+        <ion-button 
+          fill="clear" 
+          slot="end" 
+          (click)="sendMessage()"
+          [disabled]="!currentMessage.trim()">
+          <ion-icon name="send-outline"></ion-icon>
+        </ion-button>
+        <ion-button 
+          fill="clear" 
+          slot="end" 
+          (click)="toggleMic()">
+          <ion-icon name="mic-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div>
+    
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <small>General guidance only. Not medical advice.</small>
+    </div>
+  </div>
+</ion-content>

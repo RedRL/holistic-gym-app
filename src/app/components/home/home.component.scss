@@ -1,0 +1,80 @@
+﻿.home-content {
+  --background: var(--ion-color-background);
+  
+  .content-container {
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 32px;
+    
+    h1 {
+      color: var(--ion-color-primary);
+      font-size: 2.2em;
+      margin-bottom: 8px;
+    }
+    
+    .welcome-subtitle {
+      color: var(--ion-color-medium);
+      font-size: 1.1em;
+    }
+  }
+  
+  .profile-info {
+    margin-bottom: 24px;
+    
+    .profile-card {
+      --background: #ffffff;
+      text-align: center;
+      
+      .profile-name {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--ion-color-primary);
+        margin-bottom: 8px;
+      }
+      
+      .profile-age {
+        color: var(--ion-color-medium);
+        font-size: 1em;
+      }
+    }
+  }
+  
+  .main-navigation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .nav-button {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+    --border-radius: 16px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    height: 60px;
+    
+    &:hover {
+      --background: var(--ion-color-primary-shade);
+    }
+  }
+  
+  .register-prompt {
+    margin-top: 24px;
+    text-align: center;
+    
+    .register-button {
+      --background: var(--ion-color-secondary);
+      --color: var(--ion-color-secondary-contrast);
+      --border-radius: 12px;
+    }
+  }
+}
