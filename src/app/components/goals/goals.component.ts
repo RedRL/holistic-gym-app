@@ -1,13 +1,13 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonCheckbox, IonItem, IonLabel, IonButton, IonCard, IonCardContent } from '@ionic/angular/standalone';
+import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 import { DataService, Goal } from '../../services/data.service';
 
 @Component({
   selector: 'app-goals',
   standalone: true,
-  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonCheckbox, IonItem, IonLabel, IonButton, IonCard, IonCardContent, FormsModule, CommonModule, DatePipe],
+  imports: [AppHeaderComponent, FormsModule, CommonModule, DatePipe],
   templateUrl: './goals.component.html',
   styleUrls: ['./goals.component.scss']
 })
@@ -29,7 +29,6 @@ export class GoalsComponent implements OnInit {
   }
 
   toggleGoal(goal: Goal) {
-    goal.done = !goal.done;
     this.dataService.saveGoals(this.goals);
     this.updateProgress();
   }

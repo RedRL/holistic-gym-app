@@ -1,0 +1,11 @@
+<header class="app-header">
+  <button *ngIf="showBack" class="icon-btn" (click)="goBack()" aria-label="Go back">
+    <span class="icon">arrow_back</span>
+  </button>
+
+  <h1>{{ title }}</h1>
+
+  <button *ngIf="showHome" class="icon-btn" (click)="goHome()" aria-label="Go to home">
+    <span class="icon">home</span>
+  </button>
+</header> 

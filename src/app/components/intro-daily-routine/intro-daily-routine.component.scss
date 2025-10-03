@@ -1,80 +1,15 @@
-﻿.intro-content {
-  --background: var(--ion-color-background);
-  
-  .content-container {
-    padding: 16px;
-  }
-  
-  .intro-section {
-    text-align: center;
-    margin-bottom: 32px;
-    
-    h2 {
-      color: var(--ion-color-primary);
-      margin-bottom: 16px;
-    }
-    
-    p {
-      color: var(--ion-color-text);
-      line-height: 1.6;
-      font-size: 1.1em;
-    }
-  }
-  
-  .routine-sections {
-    margin-bottom: 32px;
-  }
-  
-  .routine-card {
-    --background: #ffffff;
-    margin-bottom: 16px;
-    
-    .card-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-      
-      .section-icon {
-        font-size: 24px;
-        color: var(--ion-color-primary);
-        margin-right: 12px;
-      }
-      
-      h3 {
-        color: var(--ion-color-primary);
-        margin: 0;
-        font-size: 1.3em;
-      }
-    }
-    
-    p {
-      color: var(--ion-color-text);
-      line-height: 1.5;
-      margin: 0;
-    }
-  }
-  
-  .ai-explanation {
-    margin-bottom: 32px;
-    
-    h3 {
-      color: var(--ion-color-primary);
-      margin-bottom: 12px;
-    }
-    
-    p {
-      color: var(--ion-color-text);
-      line-height: 1.6;
-    }
-  }
-  
-  .start-button {
-    --background: var(--ion-color-primary);
-    --color: var(--ion-color-primary-contrast);
-    --border-radius: 12px;
-    --padding-top: 16px;
-    --padding-bottom: 16px;
-    font-size: 1.2em;
-    font-weight: 600;
-  }
+﻿/* Most styles are in global theme.css */
+
+.content h2 {
+  font-size: 1.5rem;
+  margin: 0 0 12px;
+  font-weight: 800;
+  text-transform: none;
+}
+
+.content h3 {
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+  font-weight: 700;
+  text-transform: none;
 }

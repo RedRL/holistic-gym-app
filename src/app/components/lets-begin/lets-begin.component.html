@@ -1,59 +1,28 @@
-﻿<ion-header>
-  <ion-toolbar>
-    <ion-title>Let's Begin</ion-title>
-  </ion-toolbar>
-</ion-header>
+﻿<app-header title="Let's Begin"></app-header>
 
-<ion-content class="lets-begin-content">
-  <div class="content-container">
-    <!-- Level Selection -->
-    <div class="level-section">
-      <h3>Choose Your Level</h3>
-      <div class="level-chips">
-        <ion-chip 
-          [color]="selectedLevel === 'beginner' ? 'primary' : 'medium'"
-          (click)="selectLevel('beginner')">
-          Beginner
-        </ion-chip>
-        <ion-chip 
-          [color]="selectedLevel === 'advanced' ? 'primary' : 'medium'"
-          (click)="selectLevel('advanced')">
-          Advanced
-        </ion-chip>
-        <ion-chip 
-          [color]="selectedLevel === 'grand' ? 'primary' : 'medium'"
-          (click)="selectLevel('grand')">
-          Grand Master
-        </ion-chip>
-      </div>
-    </div>
-    
-    <!-- Exercises -->
-    <div class="exercises-section">
-      <h3>Today's Activities</h3>
-      
-      <ion-card class="exercise-card" *ngFor="let exercise of exercises">
-        <ion-card-content>
-          <div class="exercise-header">
-            <h4>{{ exercise.title }}</h4>
-            <span class="duration">{{ exercise.duration }} min</span>
-          </div>
-          <p>{{ exercise.description }}</p>
-          <ion-button 
-            expand="block" 
-            class="start-exercise-btn"
-            (click)="startExercise(exercise)">
-            Start {{ exercise.title }}
-          </ion-button>
-        </ion-card-content>
-      </ion-card>
-    </div>
-    
-    <!-- Progress Bar -->
-    <div class="progress-section">
-      <h4>Today's Progress</h4>
-      <ion-progress-bar [value]="todayProgress"></ion-progress-bar>
-      <p class="progress-text">{{ completedToday }} of {{ totalExercises }} exercises completed</p>
-    </div>
+<section class="content">
+  <h3>Choose Your Level</h3>
+  <div class="level-chips" role="group" aria-label="Choose your level">
+    <button class="level-chip" [attr.aria-pressed]="selectedLevel==='beginner'" (click)="selectLevel('beginner')">Beginner</button>
+    <button class="level-chip" [attr.aria-pressed]="selectedLevel==='advanced'" (click)="selectLevel('advanced')">Advanced</button>
+    <button class="level-chip" [attr.aria-pressed]="selectedLevel==='grand'" (click)="selectLevel('grand')">Grand Master</button>
   </div>
-</ion-content>
+
+  <h3>Today's Activities</h3>
+  <div class="card" *ngFor="let exercise of exercises">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div>
+        <strong>{{ exercise.title }}</strong>
+        <div>{{ exercise.description }}</div>
+      </div>
+      <div>{{ exercise.duration }} min</div>
+    </div>
+    <button class="btn-primary" (click)="startExercise(exercise)">Start {{ exercise.title }}</button>
+  </div>
+
+  <h3>Today's Progress</h3>
+  <div class="progress-bar">
+    <div class="progress-bar__fill" [style.width.%]="todayProgress * 100"></div>
+  </div>
+  <div class="muted">{{ completedToday }} of {{ totalExercises }} exercises completed</div>
+</section>

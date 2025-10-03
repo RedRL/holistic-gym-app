@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonInput, IonItem, IonIcon, IonChip } from '@ionic/angular/standalone';
+import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 import { ChatService } from '../../services/chat.service';
 
 interface ChatMessage {
@@ -13,7 +13,7 @@ interface ChatMessage {
 @Component({
   selector: 'app-ai-assistant',
   standalone: true,
-  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonInput, IonItem, IonIcon, IonChip, FormsModule, CommonModule, DatePipe],
+  imports: [AppHeaderComponent, FormsModule, CommonModule, DatePipe],
   templateUrl: './ai-assistant.component.html',
   styleUrls: ['./ai-assistant.component.scss']
 })

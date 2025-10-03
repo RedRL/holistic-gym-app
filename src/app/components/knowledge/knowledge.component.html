@@ -1,49 +1,34 @@
-﻿<ion-header>
-  <ion-toolbar>
-    <ion-title>Health Knowledge</ion-title>
-  </ion-toolbar>
-</ion-header>
+﻿<app-header title="Health Knowledge"></app-header>
 
-<ion-content class="knowledge-content">
-  <div class="content-container">
-    <div class="knowledge-intro">
-      <h2>Wellness Articles</h2>
-      <p>Learn about health, wellness, and techniques to support your daily routine.</p>
-    </div>
-    
-    <div class="articles-list">
-      <ion-card *ngFor="let article of articles" class="article-card">
-        <ion-card-content>
-          <ion-card-title>{{ article.title }}</ion-card-title>
-          <p class="article-excerpt">{{ article.excerpt }}</p>
-          
-          <ion-accordion-group>
-            <ion-accordion value="{{ article.id }}">
-              <ion-item slot="header">
-                <ion-label>Read Full Article</ion-label>
-              </ion-item>
-              <div slot="content" class="article-body">
-                {{ article.body }}
-              </div>
-            </ion-accordion>
-          </ion-accordion-group>
-        </ion-card-content>
-      </ion-card>
-    </div>
-    
-    <div class="knowledge-tips">
-      <ion-card class="tips-card">
-        <ion-card-content>
-          <h3>Quick Tips</h3>
-          <ul class="tips-list">
-            <li>Take breaks every hour to stretch and breathe</li>
-            <li>Stay hydrated throughout the day</li>
-            <li>Practice gratitude daily</li>
-            <li>Get adequate sleep (7-9 hours)</li>
-            <li>Connect with loved ones regularly</li>
-          </ul>
-        </ion-card-content>
-      </ion-card>
+<div class="content">
+  <div class="knowledge-intro">
+    <h2>Wellness Articles</h2>
+    <p>Learn about health, wellness, and techniques to support your daily routine.</p>
+  </div>
+  
+  <div class="articles-list">
+    <div *ngFor="let article of articles" class="section-card">
+      <h3>{{ article.title }}</h3>
+      <p class="article-excerpt">{{ article.excerpt }}</p>
+      <details class="article-details">
+        <summary>Read Full Article</summary>
+        <div class="article-body">
+          {{ article.body }}
+        </div>
+      </details>
     </div>
   </div>
-</ion-content>
+  
+  <div class="knowledge-tips">
+    <div class="section-card">
+      <h3>Quick Tips</h3>
+      <ul class="tips-list">
+        <li>Take breaks every hour to stretch and breathe</li>
+        <li>Stay hydrated throughout the day</li>
+        <li>Practice gratitude daily</li>
+        <li>Get adequate sleep (7-9 hours)</li>
+        <li>Connect with loved ones regularly</li>
+      </ul>
+    </div>
+  </div>
+</div>

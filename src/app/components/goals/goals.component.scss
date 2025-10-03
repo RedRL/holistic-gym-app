@@ -1,69 +1,85 @@
-﻿.goals-content {
-  --background: var(--ion-color-background);
-  
-  .content-container {
-    padding: 16px;
-  }
-  
-  .goals-intro {
-    text-align: center;
-    margin-bottom: 24px;
-    
-    h2 {
-      color: var(--ion-color-primary);
-      margin-bottom: 8px;
-    }
-  }
-  
-  .progress-section {
-    margin-bottom: 24px;
-    
-    .progress-card {
-      --background: #ffffff;
-      text-align: center;
-      
-      .progress-text {
-        font-size: 1.2em;
-        font-weight: bold;
-        color: var(--ion-color-primary);
-        margin-bottom: 8px;
-      }
-      
-      .progress-bar {
-        margin: 16px 0;
-      }
-    }
-  }
-  
-  .goals-list {
-    margin-bottom: 24px;
-  }
-  
-  .goal-card {
-    --background: #ffffff;
-    margin-bottom: 12px;
-    
-    .goal-item {
-      --padding-start: 16px;
-      --padding-end: 16px;
-      
-      .goal-label {
-        font-size: 1.1em;
-        line-height: 1.4;
-      }
-      
-      .goal-due-date {
-        font-size: 0.9em;
-        color: var(--ion-color-medium);
-        margin-top: 4px;
-      }
-    }
-  }
-  
-  .add-goal-button {
-    --background: var(--ion-color-primary);
-    --color: var(--ion-color-primary-contrast);
-    --border-radius: 12px;
-    margin-top: 16px;
-  }
+﻿/* Most styles are in global theme.css */
+
+.goals-intro {
+  margin-bottom: 20px;
+}
+
+.goals-intro h2 {
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+  font-weight: 800;
+  text-transform: none;
+}
+
+.goals-list {
+  margin-bottom: 20px;
+}
+
+.goal-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.goal-checkbox input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.goal-label {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.goal-label.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.goal-due-date {
+  margin-left: 36px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.progress-summary {
+  margin-bottom: 20px;
+}
+
+.progress-summary h3 {
+  font-size: 1.2rem;
+  margin: 0 0 12px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
 }

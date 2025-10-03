@@ -1,94 +1,35 @@
-﻿<ion-header>
-  <ion-toolbar>
-    <ion-title>Brain Power</ion-title>
-  </ion-toolbar>
-</ion-header>
+﻿<app-header title="Brain Power" [showBack]="false" [showHome]="false"></app-header>
 
-<ion-content class="home-content">
-  <div class="content-container">
-    <!-- Registration Banner -->
-    <ion-card *ngIf="!profile" class="registration-banner">
-      <ion-card-content>
-        <p>Complete registration to personalize your experience</p>
-        <ion-button fill="outline" size="small" (click)="goToRegister()">
-          Complete Registration
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-    
-    <!-- Main Menu Buttons -->
-    <div class="menu-buttons">
-      <ion-button 
-        expand="block" 
-        class="menu-button"
-        (click)="navigateTo('/intro-daily-routine')">
-        <div class="button-content">
-          <ion-icon name="play-circle-outline" class="button-icon"></ion-icon>
-          <div class="button-text">
-            <h3>Intro to Daily Routine Exercises</h3>
-            <p>Learn about our holistic approach</p>
-          </div>
-        </div>
-      </ion-button>
-      
-      <ion-button 
-        expand="block" 
-        class="menu-button"
-        (click)="navigateTo('/lets-begin')">
-        <div class="button-content">
-          <ion-icon name="fitness-outline" class="button-icon"></ion-icon>
-          <div class="button-text">
-            <h3>Let's Begin  Daily Routine</h3>
-            <p>Start your daily exercises</p>
-          </div>
-        </div>
-      </ion-button>
-      
-      <ion-button 
-        expand="block" 
-        class="menu-button"
-        (click)="navigateTo('/ai-assistant')">
-        <div class="button-content">
-          <ion-icon name="chatbubble-outline" class="button-icon"></ion-icon>
-          <div class="button-text">
-            <h3>Automated AI Answer Engine</h3>
-            <p>Get instant guidance and support</p>
-          </div>
-        </div>
-      </ion-button>
-      
-      <ion-button 
-        expand="block" 
-        class="menu-button"
-        (click)="navigateTo('/goals')">
-        <div class="button-content">
-          <ion-icon name="flag-outline" class="button-icon"></ion-icon>
-          <div class="button-text">
-            <h3>Goals & Challenges</h3>
-            <p>Track your progress and achievements</p>
-          </div>
-        </div>
-      </ion-button>
-      
-      <ion-button 
-        expand="block" 
-        class="menu-button"
-        (click)="navigateTo('/knowledge')">
-        <div class="button-content">
-          <ion-icon name="library-outline" class="button-icon"></ion-icon>
-          <div class="button-text">
-            <h3>Health Knowledge</h3>
-            <p>Learn about wellness and health</p>
-          </div>
-        </div>
-      </ion-button>
-    </div>
-    
-    <!-- Footer Link -->
-    <div class="footer-link">
-      <ion-button fill="clear" (click)="navigateTo('/contact')">
-        Contact & Support
-      </ion-button>
-    </div>
-  </div>
-</ion-content>
+<section class="home-grid" aria-label="Main actions">
+  <!-- 1) Intro -->
+  <button class="tile tile--1" (click)="nav('/intro-daily-routine')" aria-label="Intro to Daily Routine Exercises">
+    <h3><span class="icon">info</span> Intro to Daily Routine Exercises</h3>
+    <p>Learn about our holistic approach</p>
+  </button>
+
+  <!-- 2) Let's Begin -->
+  <button class="tile tile--2" (click)="nav('/lets-begin')" aria-label="Let's Begin – Daily Routine">
+    <h3><span class="icon">play_arrow</span> Let's Begin – Daily Routine</h3>
+    <p>{{ progressSubtitle }}</p>
+  </button>
+
+  <!-- 3) AI Assistant -->
+  <button class="tile tile--3" (click)="nav('/ai-assistant')" aria-label="Automated AI Answer Engine">
+    <h3><span class="icon">smart_toy</span> Automated AI Answer Engine</h3>
+    <p>Ask a question, get guidance</p>
+  </button>
+
+  <!-- 4) Goals -->
+  <button class="tile tile--4" (click)="nav('/goals')" aria-label="Goals & Challenges">
+    <h3><span class="icon">flag</span> Goals &amp; Challenges</h3>
+    <p>{{ activeGoalsText }}</p>
+  </button>
+
+  <!-- 5) Knowledge -->
+  <button class="tile tile--5" (click)="nav('/knowledge')" aria-label="Health Knowledge">
+    <h3><span class="icon">menu_book</span> Health Knowledge</h3>
+    <p>Short articles &amp; tips</p>
+  </button>
+</section>
+
+<a class="contact-link" (click)="nav('/contact')">Contact &amp; Support</a>

@@ -1,10 +1,11 @@
 ﻿import { Component } from '@angular/core';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonAccordion, IonAccordionGroup, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
+import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonAccordion, IonAccordionGroup, IonItem, IonLabel],
+  imports: [CommonModule, AppHeaderComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })

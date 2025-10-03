@@ -1,93 +1,19 @@
-﻿.lets-begin-content {
-  --background: var(--ion-color-background);
-  
-  .content-container {
-    padding: 16px;
-  }
-  
-  .level-selection {
-    margin-bottom: 24px;
-    
-    h3 {
-      color: var(--ion-color-primary);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-    
-    .level-chips {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    
-    .level-chip {
-      --background: #ffffff;
-      --color: var(--ion-color-primary);
-      --border-radius: 20px;
-      
-      &.selected {
-        --background: var(--ion-color-primary);
-        --color: var(--ion-color-primary-contrast);
-      }
-    }
-  }
-  
-  .progress-section {
-    margin-bottom: 24px;
-    
-    .progress-card {
-      --background: #ffffff;
-      text-align: center;
-      
-      .progress-text {
-        font-size: 1.1em;
-        color: var(--ion-color-primary);
-        margin-bottom: 8px;
-      }
-      
-      .progress-bar {
-        margin: 12px 0;
-      }
-    }
-  }
-  
-  .exercises-list {
-    margin-bottom: 24px;
-  }
-  
-  .exercise-card {
-    --background: #ffffff;
-    margin-bottom: 16px;
-    
-    .exercise-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      
-      .exercise-title {
-        font-size: 1.2em;
-        font-weight: bold;
-        color: var(--ion-color-primary);
-      }
-      
-      .exercise-duration {
-        color: var(--ion-color-medium);
-        font-size: 0.9em;
-      }
-    }
-    
-    .exercise-description {
-      color: var(--ion-color-text);
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-    
-    .exercise-button {
-      --background: var(--ion-color-primary);
-      --color: var(--ion-color-primary-contrast);
-      --border-radius: 12px;
-    }
-  }
+﻿/* Most styles are in global theme.css */
+
+.content h3 {
+  font-size: 1.2rem;
+  margin: 16px 0 12px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.content h3:first-child {
+  margin-top: 0;
+}
+
+.card strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
 }

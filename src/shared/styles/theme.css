@@ -1,72 +1,241 @@
 ﻿:root {
-  --ion-color-primary: #40bca4;
-  --ion-color-primary-rgb: 64, 188, 164;
+  --bg: #f9f9f9;
+  --text: #333333;
+
+  /* Contrast-safe brand */
+  --primary: #167a67;           /* darker teal for AAA buttons/accents */
+  --brand-teal: #40bca4;        /* original teal (use with dark text) */
+  --brand-orange: #EE8621;
+
+  /* Tile colors (each with good contrast when paired as below) */
+  --tile-1: #4ABDE2;            /* blue   -> white text */
+  --tile-2: #EE8621;            /* orange -> dark text */
+  --tile-3: #40BCA4;            /* teal   -> dark text */
+  --tile-4: #8E44AD;            /* purple -> white text */
+  --tile-5: #F5B041;            /* amber  -> dark text */
+
+  --radius: 16px;
+  --shadow: 0 4px 14px rgba(0,0,0,.08);
+  --focus: #005fcc;
+
+  --chip-bg: #e8f5f2;
+  --chip-selected: #167a67;
+
+  /* Ionic compatibility */
+  --ion-color-primary: #167a67;
+  --ion-color-primary-rgb: 22, 122, 103;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #38a590;
-  --ion-color-primary-tint: #53c3ad;
+  --ion-color-primary-shade: #145c5a;
+  --ion-color-primary-tint: #2d8876;
 
   --ion-color-secondary: #EE8621;
   --ion-color-secondary-rgb: 238, 134, 33;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-contrast: #0a0a0a;
+  --ion-color-secondary-contrast-rgb: 10, 10, 10;
   --ion-color-secondary-shade: #d1761d;
   --ion-color-secondary-tint: #f09237;
 
   --ion-color-background: #f9f9f9;
   --ion-color-text: #333333;
 
-  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ion-font-family: Nunito, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Nunito, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible { 
+  outline: 3px solid var(--focus); 
+  outline-offset: 3px; 
+}
+
+/* Primary button */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  min-height: 48px;
+  font-size: 16px;
+  width: 100%;
+  text-transform: none;
+}
+
+.btn-primary:hover {
+  background: #145c5a;
+}
+
+/* Tiles */
+.tile {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  text-align: left;
+  display: block;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 120px;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.tile h3 { 
+  margin: 0 0 4px; 
+  font-weight: 800; 
+  text-transform: none; 
+  letter-spacing: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.tile p { 
+  margin: 0; 
+  opacity: .95; 
+  font-size: .95rem; 
+}
+
+.tile--1 { background: var(--tile-1); color: #fff; }
+.tile--2 { background: var(--tile-2); color: #0a0a0a; }
+.tile--3 { background: var(--tile-3); color: #0a0a0a; }
+.tile--4 { background: var(--tile-4); color: #fff; }
+.tile--5 { background: var(--tile-5); color: #0a0a0a; }
+
+/* Grid */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+
+@media (max-width: 420px) { 
+  .home-grid { 
+    grid-template-columns: 1fr; 
+  } 
+}
+
+.contact-link { 
+  display: block; 
+  text-align: center; 
+  margin: 12px 0 28px; 
+  color: var(--primary); 
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+/* Icons */
+.icon { 
+  font-family: "Material Symbols Rounded"; 
+  font-weight: 400; 
+  font-style: normal; 
+  font-size: 22px; 
+  line-height: 1; 
+  vertical-align: -2px; 
+  margin-right: 6px; 
+}
+
+/* Cards + sticky CTA */
+.card, .section-card { 
+  background: #fff; 
+  border-radius: var(--radius); 
+  padding: 12px 14px; 
+  box-shadow: var(--shadow); 
+  margin-bottom: 12px; 
+}
+
+.sticky-cta { 
+  position: sticky; 
+  bottom: 12px; 
+  z-index: 2;
+  padding: 0 16px;
+}
+
+/* Level chips */
+.level-chips { 
+  display: flex; 
+  gap: 8px; 
+  margin-bottom: 12px; 
+  flex-wrap: wrap; 
+}
+
+.level-chip {
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: var(--chip-bg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 48px;
+  font-size: 16px;
+}
+
+.level-chip:hover {
+  background: #d4ebe6;
+}
+
+.level-chip[aria-pressed="true"] { 
+  background: var(--chip-selected); 
+  color: #fff; 
+  border-color: var(--chip-selected); 
+  font-weight: 700; 
+}
+
+/* Progress bar */
+.progress-bar { 
+  height: 8px; 
+  border-radius: 999px; 
+  background: #e6e6e6; 
+  overflow: hidden; 
+  margin-bottom: 8px;
+}
+
+.progress-bar__fill { 
+  height: 100%; 
+  background: var(--primary); 
+  width: 0%; 
+  transition: width .4s ease; 
+}
+
+/* Content padding */
+.content { 
+  padding: 16px; 
+}
+
+/* Muted text */
+.muted { 
+  color: #666; 
+  margin-top: 6px; 
+  font-size: 0.9rem;
+}
+
+/* Accessibility utilities */
 .large-text {
-  --ion-font-size-base: 18px;
+  font-size: 20px;
 }
 
 .high-contrast {
-  --ion-color-primary: #2d7d6b;
-  --ion-color-secondary: #d4761a;
-  --ion-color-text: #000000;
-}
-
-.primary-button {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-  --border-radius: 12px;
-  --padding-start: 24px;
-  --padding-end: 24px;
-  --padding-top: 16px;
-  --padding-bottom: 16px;
-  font-size: 16px;
-  font-weight: 600;
-  min-height: 56px;
-}
-
-.secondary-button {
-  --background: var(--ion-color-secondary);
-  --color: var(--ion-color-secondary-contrast);
-  --border-radius: 12px;
-  --padding-start: 24px;
-  --padding-end: 24px;
-  --padding-top: 16px;
-  --padding-bottom: 16px;
-  font-size: 16px;
-  font-weight: 600;
-  min-height: 56px;
-}
-
-.card {
-  --background: #ffffff;
-  --color: var(--ion-color-text);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 16px;
-  padding: 20px;
-}
-
-.progress-bar {
-  --background: #e0e0e0;
-  --progress-background: var(--ion-color-primary);
-  height: 8px;
-  border-radius: 4px;
+  --primary: #145c5a;
+  --text: #000000;
 }

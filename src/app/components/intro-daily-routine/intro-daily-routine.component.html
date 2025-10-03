@@ -1,55 +1,30 @@
-﻿<ion-header>
-  <ion-toolbar>
-    <ion-title>Daily Routine Introduction</ion-title>
-  </ion-toolbar>
-</ion-header>
+﻿<app-header title="Daily Routine Introduction"></app-header>
 
-<ion-content class="intro-content">
-  <div class="content-container">
-    <div class="intro-section">
-      <h2>Welcome to Your Daily Routine</h2>
-      <p>Our holistic approach combines three key elements to support your body, mind, and brain health:</p>
-    </div>
-    
-    <div class="routine-sections">
-      <ion-card class="routine-card">
-        <ion-card-content>
-          <div class="card-header">
-            <ion-icon name="musical-notes-outline" class="section-icon"></ion-icon>
-            <h3>Music Session</h3>
-          </div>
-          <p>Calming music to help you relax and focus. Music therapy has been shown to reduce stress and improve cognitive function.</p>
-        </ion-card-content>
-      </ion-card>
-      
-      <ion-card class="routine-card">
-        <ion-card-content>
-          <div class="card-header">
-            <ion-icon name="leaf-outline" class="section-icon"></ion-icon>
-            <h3>Breathing</h3>
-          </div>
-          <p>Guided breathing exercises to help you center yourself and reduce anxiety. Proper breathing techniques can improve oxygen flow to your brain.</p>
-        </ion-card-content>
-      </ion-card>
-      
-      <ion-card class="routine-card">
-        <ion-card-content>
-          <div class="card-header">
-            <ion-icon name="body-outline" class="section-icon"></ion-icon>
-            <h3>Movement & Games</h3>
-          </div>
-          <p>Gentle Feldenkrais movements, memory games, and eye exercises to keep your body and mind active and engaged.</p>
-        </ion-card-content>
-      </ion-card>
-    </div>
-    
-    <div class="ai-explanation">
-      <h3>How Our AI Works</h3>
-      <p>Our AI assistant learns from your preferences and progress to provide personalized guidance. It can help with sleep tips, stress management, and gentle movement suggestions.</p>
-    </div>
-    
-    <ion-button expand="block" class="start-button" (click)="startDemo()">
-      Start Demo Routine
-    </ion-button>
+<main class="content">
+  <h2>Welcome to Your Daily Routine</h2>
+  <p>Our holistic approach combines three key elements to support body, mind, and brain health.</p>
+
+  <div class="section-card">
+    <h3><span class="icon">music_note</span> Music Session</h3>
+    <p>Calming music to help you relax and focus.</p>
   </div>
-</ion-content>
+
+  <div class="section-card">
+    <h3><span class="icon">air</span> Breathing</h3>
+    <p>Guided breathing exercises to center yourself.</p>
+  </div>
+
+  <div class="section-card">
+    <h3><span class="icon">sports_martial_arts</span> Movement &amp; Games</h3>
+    <p>Feldenkrais movements, memory, and eye exercises.</p>
+  </div>
+
+  <h3>How Our AI Works</h3>
+  <p>For the MVP, the assistant provides general guidance with simple tips.</p>
+
+  <div class="sticky-cta">
+    <button class="btn-primary" (click)="startDemo()" aria-label="Start demo routine">
+      Start Demo Routine
+    </button>
+  </div>
+</main>

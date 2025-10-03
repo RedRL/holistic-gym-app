@@ -1,13 +1,13 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonChip, IonProgressBar } from '@ionic/angular/standalone';
+import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 import { DataService, Exercise, Completion } from '../../services/data.service';
 
 @Component({
   selector: 'app-lets-begin',
   standalone: true,
-  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonCard, IonCardContent, IonChip, IonProgressBar, CommonModule],
+  imports: [CommonModule, AppHeaderComponent],
   templateUrl: './lets-begin.component.html',
   styleUrls: ['./lets-begin.component.scss']
 })

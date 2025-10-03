@@ -1,12 +1,12 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonCard, IonCardContent, IonCardTitle, IonButton, IonAccordion, IonAccordionGroup, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 import { DataService, Article } from '../../services/data.service';
 
 @Component({
   selector: 'app-knowledge',
   standalone: true,
-  imports: [IonContent, IonHeader, IonToolbar, IonTitle, IonCard, IonCardContent, IonCardTitle, IonButton, IonAccordion, IonAccordionGroup, IonItem, IonLabel, CommonModule],
+  imports: [AppHeaderComponent, CommonModule],
   templateUrl: './knowledge.component.html',
   styleUrls: ['./knowledge.component.scss']
 })

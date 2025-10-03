@@ -1,41 +1,61 @@
-﻿<ion-header>
-  <ion-toolbar>
-    <ion-title>Complete Registration</ion-title>
-  </ion-toolbar>
-</ion-header>
+﻿<app-header title="Complete Registration"></app-header>
 
-<ion-content class="register-content">
-  <div class="form-container">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <ion-item>
-        <ion-label position="stacked">Name *</ion-label>
-        <ion-input formControlName="name" placeholder="Enter your name"></ion-input>
-      </ion-item>
+<div class="content">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name *</label>
+      <input 
+        id="name"
+        class="form-input"
+        formControlName="name" 
+        placeholder="Enter your name"
+        type="text">
+    </div>
+    
+    <div class="form-group">
+      <label for="age">Age *</label>
+      <input 
+        id="age"
+        class="form-input"
+        formControlName="age" 
+        type="number" 
+        placeholder="Enter your age">
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        id="email"
+        class="form-input"
+        formControlName="email" 
+        type="email" 
+        placeholder="Enter your email">
+    </div>
+    
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input 
+        id="phone"
+        class="form-input"
+        formControlName="phone" 
+        placeholder="Enter your phone"
+        type="tel">
+    </div>
+    
+    <div class="button-container">
+      <button 
+        class="btn-primary" 
+        type="submit" 
+        [disabled]="!registerForm.valid">
+        Continue
+      </button>
       
-      <ion-item>
-        <ion-label position="stacked">Age *</ion-label>
-        <ion-input formControlName="age" type="number" placeholder="Enter your age"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Enter your email"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="stacked">Phone</ion-label>
-        <ion-input formControlName="phone" placeholder="Enter your phone"></ion-input>
-      </ion-item>
-      
-      <div class="button-container">
-        <ion-button expand="block" type="submit" [disabled]="!registerForm.valid" class="primary-button">
-          Continue
-        </ion-button>
-        
-        <ion-button expand="block" fill="outline" (click)="skipRegistration()" class="secondary-button">
-          Skip for now
-        </ion-button>
-      </div>
-    </form>
-  </div>
-</ion-content>
+      <button 
+        class="btn-secondary" 
+        type="button"
+        (click)="skipRegistration()">
+        Skip for now
+      </button>
+    </div>
+  </form>
+</div>
