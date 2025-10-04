@@ -9,20 +9,20 @@
   margin: 0 0 8px;
   font-weight: 800;
   text-transform: none;
-}
-
-.contact-options {
+  }
+  
+  .contact-options {
   margin-bottom: 20px;
-}
-
+  }
+  
 .section-card h3 {
   font-size: 1.2rem;
   margin: 0 0 8px;
   font-weight: 700;
   text-transform: none;
-}
-
-.faq-section {
+  }
+  
+  .faq-section {
   margin-bottom: 20px;
 }
 
@@ -46,15 +46,15 @@ details summary {
 
 details summary::-webkit-details-marker {
   display: none;
-}
-
+  }
+  
 details summary::before {
   content: '▶';
   display: inline-block;
   margin-right: 8px;
   transition: transform 0.2s;
-}
-
+  }
+  
 details[open] summary::before {
   transform: rotate(90deg);
 }
@@ -67,9 +67,9 @@ details summary:hover {
   padding: 12px 0 8px 24px;
   line-height: 1.6;
   color: #333;
-}
-
+    }
+    
 .support-info p {
-  margin: 4px 0;
+      margin: 4px 0;
   line-height: 1.6;
 }

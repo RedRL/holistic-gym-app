@@ -1,42 +1,36 @@
 ﻿import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
-import { DataService, Profile } from '../../services/data.service';
+import { TPipe } from '../../shared/pipes/t.pipe';
 
 @Component({
-  selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, AppHeaderComponent, ReactiveFormsModule],
+  selector: 'app-register',
+  imports: [CommonModule, ReactiveFormsModule, AppHeaderComponent, TPipe],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
+  form = this.fb.group({
+    fullName: ['', [Validators.required, Validators.minLength(2)]],
+    age: ['', [Validators.required]],
+    email: ['', [Validators.email]],
+    phone: ['']
+  });
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private dataService: DataService
-  ) {
-    this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      age: ['', [Validators.required, Validators.min(1)]],
-      email: [''],
-      phone: ['']
-    });
-  }
+  constructor(private fb: FormBuilder, private router: Router) {}
 
-  onSubmit() {
-    if (this.registerForm.valid) {
-      const profile: Profile = this.registerForm.value;
-      this.dataService.saveProfile(profile);
-      this.router.navigate(['/home']);
-    }
-  }
-
-  skipRegistration() {
+  asGuest() {
+    localStorage.setItem('guest','true');
     this.router.navigate(['/home']);
+  }
+
+  submit() {
+    if (this.form.invalid) { this.form.markAllAsTouched(); return; }
+    localStorage.removeItem('guest');
+    localStorage.setItem('profile', JSON.stringify(this.form.value));
+    this.router.navigate(['/welcome']);
   }
 }

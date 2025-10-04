@@ -1,47 +1,47 @@
-﻿<app-header title="Contact & Support"></app-header>
+﻿<app-header [title]="'contact_support'|t"></app-header>
 
 <div class="content">
   <div class="contact-intro">
-    <h2>Get in Touch</h2>
-    <p>We're here to help! Reach out to us for support, questions, or feedback.</p>
+    <h2>{{'get_in_touch'|t}}</h2>
+    <p>{{'help_support'|t}}</p>
   </div>
   
   <div class="contact-options">
     <div class="section-card">
-      <h3>Send Message</h3>
-      <p>Contact us directly via email</p>
+      <h3>{{'send_message'|t}}</h3>
+      <p>{{'contact_email'|t}}</p>
       <button class="btn-primary" (click)="sendEmail()">
-        Send Message
+        {{'send_message'|t}}
       </button>
     </div>
   </div>
   
   <div class="faq-section">
-    <h3>Frequently Asked Questions</h3>
+    <h3>{{'faq_title'|t}}</h3>
     
     <div class="section-card">
       <details>
-        <summary>How often should I do the exercises?</summary>
+        <summary>{{'faq_exercise_frequency'|t}}</summary>
         <div class="faq-answer">
-          We recommend doing the daily routine exercises once per day, preferably at the same time each day to establish a consistent habit. Start with 5-10 minutes and gradually increase as you feel comfortable.
+          {{'faq_exercise_answer'|t}}
         </div>
       </details>
     </div>
     
     <div class="section-card">
       <details>
-        <summary>Is this app suitable for seniors?</summary>
+        <summary>{{'faq_seniors'|t}}</summary>
         <div class="faq-answer">
-          Yes! Brain Power is specifically designed with seniors in mind. We use large, accessible UI elements, clear typography, and gentle exercises that are safe for all ages. The app includes accessibility features like large text mode.
+          {{'faq_seniors_answer'|t}}
         </div>
       </details>
     </div>
     
     <div class="section-card">
       <details>
-        <summary>Can I use this app without internet?</summary>
+        <summary>{{'faq_offline'|t}}</summary>
         <div class="faq-answer">
-          Yes, Brain Power works offline! All exercises, articles, and features are available without an internet connection. Your progress is saved locally on your device.
+          {{'faq_offline_answer'|t}}
         </div>
       </details>
     </div>
@@ -49,10 +49,10 @@
   
   <div class="support-info">
     <div class="section-card">
-      <h3>Support Hours</h3>
-      <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-      <p>Saturday: 10:00 AM - 2:00 PM</p>
-      <p>Sunday: Closed</p>
+      <h3>{{'support_hours'|t}}</h3>
+      <p>{{'support_monday_friday'|t}}</p>
+      <p>{{'support_saturday'|t}}</p>
+      <p>{{'support_sunday'|t}}</p>
     </div>
   </div>
 </div>

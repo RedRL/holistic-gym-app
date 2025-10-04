@@ -1,9 +1,9 @@
-﻿<app-header title="Goals & Challenges"></app-header>
+﻿<app-header [title]="'goals_challenges'|t"></app-header>
 
 <div class="content">
   <div class="goals-intro">
-    <h2>Your Daily Goals</h2>
-    <p>Track your progress and stay motivated with these achievable goals.</p>
+    <h2>{{'your_daily_goals'|t}}</h2>
+    <p>{{'track_progress'|t}}</p>
   </div>
   
   <div class="goals-list">
@@ -18,26 +18,26 @@
         </span>
       </label>
       <div class="goal-due-date" *ngIf="goal.dueDate">
-        <small>Due: {{ goal.dueDate | date:'short' }}</small>
+        <small>{{'due'|t}}: {{ goal.dueDate | date:'short' }}</small>
       </div>
     </div>
   </div>
   
   <div class="progress-summary">
     <div class="section-card">
-      <h3>Today's Progress</h3>
+      <h3>{{'todays_progress'|t}}</h3>
       <div class="progress-stats">
         <div class="stat">
           <span class="stat-number">{{ completedGoals }}</span>
-          <span class="stat-label">Completed</span>
+          <span class="stat-label">{{'completed'|t}}</span>
         </div>
         <div class="stat">
           <span class="stat-number">{{ totalGoals }}</span>
-          <span class="stat-label">Total Goals</span>
+          <span class="stat-label">{{'total_goals'|t}}</span>
         </div>
         <div class="stat">
           <span class="stat-number">{{ completionPercentage }}%</span>
-          <span class="stat-label">Complete</span>
+          <span class="stat-label">{{'complete'|t}}</span>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
   
   <div class="add-goal-section">
     <button class="btn-primary" (click)="addNewGoal()">
-      Add New Goal
+      {{'add_new_goal'|t}}
     </button>
   </div>
 </div>

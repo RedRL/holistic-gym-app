@@ -1,9 +1,9 @@
-﻿<app-header title="Health Knowledge"></app-header>
+﻿<app-header [title]="'health_knowledge'|t"></app-header>
 
 <div class="content">
   <div class="knowledge-intro">
-    <h2>Wellness Articles</h2>
-    <p>Learn about health, wellness, and techniques to support your daily routine.</p>
+    <h2>{{'wellness_articles'|t}}</h2>
+    <p>{{'learn_wellness'|t}}</p>
   </div>
   
   <div class="articles-list">
@@ -11,7 +11,7 @@
       <h3>{{ article.title }}</h3>
       <p class="article-excerpt">{{ article.excerpt }}</p>
       <details class="article-details">
-        <summary>Read Full Article</summary>
+        <summary>{{'read_full_article'|t}}</summary>
         <div class="article-body">
           {{ article.body }}
         </div>
@@ -21,13 +21,13 @@
   
   <div class="knowledge-tips">
     <div class="section-card">
-      <h3>Quick Tips</h3>
+      <h3>{{'quick_tips'|t}}</h3>
       <ul class="tips-list">
-        <li>Take breaks every hour to stretch and breathe</li>
-        <li>Stay hydrated throughout the day</li>
-        <li>Practice gratitude daily</li>
-        <li>Get adequate sleep (7-9 hours)</li>
-        <li>Connect with loved ones regularly</li>
+        <li>{{'tip_breaks'|t}}</li>
+        <li>{{'tip_hydration'|t}}</li>
+        <li>{{'tip_gratitude'|t}}</li>
+        <li>{{'tip_sleep'|t}}</li>
+        <li>{{'tip_connection'|t}}</li>
       </ul>
     </div>
   </div>

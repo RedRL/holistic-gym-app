@@ -1,14 +1,7 @@
-﻿<app-header title="Let's Begin"></app-header>
+﻿<app-header [title]="'lets_begin'|t"></app-header>
 
 <section class="content">
-  <h3>Choose Your Level</h3>
-  <div class="level-chips" role="group" aria-label="Choose your level">
-    <button class="level-chip" [attr.aria-pressed]="selectedLevel==='beginner'" (click)="selectLevel('beginner')">Beginner</button>
-    <button class="level-chip" [attr.aria-pressed]="selectedLevel==='advanced'" (click)="selectLevel('advanced')">Advanced</button>
-    <button class="level-chip" [attr.aria-pressed]="selectedLevel==='grand'" (click)="selectLevel('grand')">Grand Master</button>
-  </div>
-
-  <h3>Today's Activities</h3>
+  <h3>{{'todays_activities'|t}}</h3>
   <div class="card" *ngFor="let exercise of exercises">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
       <div>
@@ -17,12 +10,12 @@
       </div>
       <div>{{ exercise.duration }} min</div>
     </div>
-    <button class="btn-primary" (click)="startExercise(exercise)">Start {{ exercise.title }}</button>
+    <button class="btn-primary" (click)="startExercise(exercise)">{{'start_exercise'|t}} {{ exercise.title }}</button>
   </div>
 
-  <h3>Today's Progress</h3>
+  <h3>{{'todays_progress'|t}}</h3>
   <div class="progress-bar">
     <div class="progress-bar__fill" [style.width.%]="todayProgress * 100"></div>
   </div>
-  <div class="muted">{{ completedToday }} of {{ totalExercises }} exercises completed</div>
+  <div class="muted">{{ completedToday }} {{'exercises_completed'|t}} {{ totalExercises }}</div>
 </section>

@@ -1,62 +1,44 @@
 /* Most styles are in global theme.css */
 
-.form-group {
-  margin-bottom: 20px;
+.reg { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+  padding: 16px; 
 }
 
-.form-group label {
+.reg label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: var(--text);
 }
 
-.form-input {
-  width: 100%;
-  padding: 14px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 16px;
-  font-family: inherit;
+.reg input { 
+  width: 100%; 
+  padding: 12px; 
+  border-radius: 12px; 
+  border: 1px solid #ddd; 
+  font-size: 16px; 
   box-sizing: border-box;
-  transition: border-color 0.2s;
 }
 
-.form-input:focus {
+.reg input:focus {
   outline: none;
   border-color: var(--primary);
 }
 
-.form-input::placeholder {
-  color: #999;
-}
-
-.button-container {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 12px;
-  padding: 14px 18px;
-  font-weight: 700;
+.guest { 
+  margin-top: 8px; 
+  background: #eaeaea; 
+  border: none; 
+  padding: 12px; 
+  border-radius: 12px; 
+  font-weight: 700; 
   cursor: pointer;
   min-height: 48px;
-  font-size: 16px;
-  width: 100%;
-  text-transform: none;
 }
 
-.btn-secondary:hover {
-  background: rgba(22, 122, 103, 0.05);
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.guest:hover {
+  background: #d0d0d0;
 } 

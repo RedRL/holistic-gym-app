@@ -1,46 +1,46 @@
 ﻿/* Most styles are in global theme.css */
-
+  
 .chat-container {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   height: calc(100vh - 60px);
   padding: 16px;
-}
-
+  }
+  
 .messages-container {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 16px;
-}
-
-.message {
-  margin-bottom: 12px;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 16px;
+  }
+  
+  .message {
+    margin-bottom: 12px;
 }
 
 .message-bubble {
   padding: 12px 16px;
   border-radius: 16px;
-  max-width: 80%;
+    max-width: 80%;
   word-wrap: break-word;
 }
 
 .bot-message .message-bubble {
   background: #e8f5f2;
   color: var(--text);
-}
-
+    }
+    
 .user-message .message-bubble {
   background: var(--primary);
   color: #fff;
-  margin-left: auto;
-}
-
-.message-time {
+      margin-left: auto;
+  }
+  
+  .message-time {
   font-size: 0.75rem;
   color: #666;
-  margin-top: 4px;
-}
-
+    margin-top: 4px;
+  }
+  
 .quick-replies {
   margin-bottom: 16px;
 }
@@ -62,23 +62,23 @@
 }
 
 .input-wrapper {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+    display: flex;
+    gap: 8px;
+    align-items: center;
   background: #fff;
   border-radius: 12px;
   padding: 8px;
   box-shadow: var(--shadow);
-}
-
+  }
+  
 .chat-input {
-  flex: 1;
+    flex: 1;
   border: none;
   outline: none;
   font-size: 16px;
   padding: 8px;
-}
-
+  }
+  
 .disclaimer {
   text-align: center;
   margin-top: 12px;

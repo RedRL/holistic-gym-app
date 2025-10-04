@@ -2,6 +2,7 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
+import { TPipe } from '../../shared/pipes/t.pipe';
 import { ChatService } from '../../services/chat.service';
 
 interface ChatMessage {
@@ -13,7 +14,7 @@ interface ChatMessage {
 @Component({
   selector: 'app-ai-assistant',
   standalone: true,
-  imports: [AppHeaderComponent, FormsModule, CommonModule, DatePipe],
+  imports: [AppHeaderComponent, FormsModule, CommonModule, DatePipe, TPipe],
   templateUrl: './ai-assistant.component.html',
   styleUrls: ['./ai-assistant.component.scss']
 })

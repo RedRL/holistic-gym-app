@@ -3,7 +3,7 @@
     <span class="icon">arrow_back</span>
   </button>
 
-  <h1>{{ title }}</h1>
+  <h1>{{ title | t }}</h1>
 
   <button *ngIf="showHome" class="icon-btn" (click)="goHome()" aria-label="Go to home">
     <span class="icon">home</span>

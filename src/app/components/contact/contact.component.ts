@@ -1,11 +1,12 @@
 ﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
+import { TPipe } from '../../shared/pipes/t.pipe';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, AppHeaderComponent],
+  imports: [CommonModule, AppHeaderComponent, TPipe],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })

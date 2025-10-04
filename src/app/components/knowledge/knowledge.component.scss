@@ -9,12 +9,12 @@
   margin: 0 0 8px;
   font-weight: 800;
   text-transform: none;
-}
-
-.articles-list {
+  }
+  
+  .articles-list {
   margin-bottom: 20px;
-}
-
+  }
+  
 .section-card h3 {
   font-size: 1.2rem;
   margin: 0 0 8px;
@@ -22,23 +22,23 @@
   text-transform: none;
   color: var(--primary);
 }
-
-.article-excerpt {
+    
+    .article-excerpt {
   color: #666;
   margin-bottom: 12px;
 }
 
 .article-details {
   margin-top: 12px;
-}
-
+    }
+    
 .article-details summary {
   cursor: pointer;
   color: var(--primary);
   font-weight: 600;
   padding: 8px 0;
-}
-
+  }
+  
 .article-details summary:hover {
   text-decoration: underline;
 }
@@ -46,10 +46,10 @@
 .article-body {
   padding: 12px 0;
   line-height: 1.6;
-}
-
-.tips-list {
-  margin: 0;
+    }
+    
+    .tips-list {
+      margin: 0;
   padding-left: 24px;
 }
 

@@ -1,0 +1,32 @@
+.lang-wrap { 
+  padding: 24px; 
+  display: flex; 
+  gap: 16px; 
+  flex-direction: column; 
+}
+
+.lang-btn {
+  padding: 18px; 
+  border-radius: 16px; 
+  border: none; 
+  cursor: pointer;
+  font-weight: 800; 
+  font-size: 20px; 
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  min-height: 60px;
+}
+
+.lang-btn:first-child { 
+  background: #F5B041; 
+  color: #0a0a0a; 
+}
+
+.lang-btn:last-child { 
+  background: #4ABDE2; 
+  color: #fff; 
+}
+
+.lang-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}

@@ -2,12 +2,13 @@
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
+import { TPipe } from '../../shared/pipes/t.pipe';
 import { DataService, Exercise, Completion } from '../../services/data.service';
 
 @Component({
   selector: 'app-lets-begin',
   standalone: true,
-  imports: [CommonModule, AppHeaderComponent],
+  imports: [CommonModule, AppHeaderComponent, TPipe],
   templateUrl: './lets-begin.component.html',
   styleUrls: ['./lets-begin.component.scss']
 })
@@ -24,14 +25,11 @@ export class LetsBeginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Read level from localStorage, default to beginner if missing
+    const stored = localStorage.getItem('level') as any;
+    this.selectedLevel = (stored === 'advanced' || stored === 'grand') ? stored : 'beginner';
     this.loadExercises();
     this.updateProgress();
-  }
-
-  selectLevel(level: 'beginner' | 'advanced' | 'grand') {
-    this.selectedLevel = level;
-    this.dataService.set('selectedLevel', level);
-    this.loadExercises();
   }
 
   loadExercises() {

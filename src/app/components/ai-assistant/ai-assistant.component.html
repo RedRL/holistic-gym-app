@@ -1,4 +1,4 @@
-﻿<app-header title="AI Assistant"></app-header>
+﻿<app-header [title]="'ai_assistant'|t"></app-header>
 
 <div class="chat-container">
   <!-- Chat Messages -->
@@ -18,16 +18,16 @@
   
   <!-- Quick Reply Chips -->
   <div class="quick-replies" *ngIf="messages.length === 0">
-    <h4>Quick Questions:</h4>
+    <h4>{{'quick_questions'|t}}</h4>
     <div class="chips-container">
       <button class="level-chip" (click)="sendQuickReply('Sleep tips')">
-        Sleep tips
+        {{'sleep_tips'|t}}
       </button>
       <button class="level-chip" (click)="sendQuickReply('Breathing basics')">
-        Breathing basics
+        {{'breathing_basics'|t}}
       </button>
       <button class="level-chip" (click)="sendQuickReply('Pain relief basics')">
-        Pain relief basics
+        {{'pain_relief_basics'|t}}
       </button>
     </div>
   </div>
@@ -38,7 +38,7 @@
       <input 
         class="chat-input"
         [(ngModel)]="currentMessage"
-        placeholder="Ask me anything about your health..."
+        placeholder="{{'ask_anything'|t}}"
         (keyup.enter)="sendMessage()"
         type="text">
       <button 
@@ -59,6 +59,6 @@
   
   <!-- Disclaimer -->
   <div class="disclaimer">
-    <small>General guidance only. Not medical advice.</small>
+    <small>{{'general_guidance'|t}}</small>
   </div>
 </div>

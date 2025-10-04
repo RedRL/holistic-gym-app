@@ -2,12 +2,13 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
+import { TPipe } from '../../shared/pipes/t.pipe';
 import { DataService, Goal } from '../../services/data.service';
 
 @Component({
   selector: 'app-goals',
   standalone: true,
-  imports: [AppHeaderComponent, FormsModule, CommonModule, DatePipe],
+  imports: [AppHeaderComponent, FormsModule, CommonModule, DatePipe, TPipe],
   templateUrl: './goals.component.html',
   styleUrls: ['./goals.component.scss']
 })

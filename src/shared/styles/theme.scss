@@ -1,72 +1,72 @@
-﻿:root {
-  --ion-color-primary: #40bca4;
-  --ion-color-primary-rgb: 64, 188, 164;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #38a590;
-  --ion-color-primary-tint: #53c3ad;
+﻿// :root {
+//   --ion-color-primary: #40bca4;
+//   --ion-color-primary-rgb: 64, 188, 164;
+//   --ion-color-primary-contrast: #ffffff;
+//   --ion-color-primary-contrast-rgb: 255, 255, 255;
+//   --ion-color-primary-shade: #38a590;
+//   --ion-color-primary-tint: #53c3ad;
 
-  --ion-color-secondary: #EE8621;
-  --ion-color-secondary-rgb: 238, 134, 33;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #d1761d;
-  --ion-color-secondary-tint: #f09237;
+//   --ion-color-secondary: #EE8621;
+//   --ion-color-secondary-rgb: 238, 134, 33;
+//   --ion-color-secondary-contrast: #ffffff;
+//   --ion-color-secondary-contrast-rgb: 255, 255, 255;
+//   --ion-color-secondary-shade: #d1761d;
+//   --ion-color-secondary-tint: #f09237;
 
-  --ion-color-background: #f9f9f9;
-  --ion-color-text: #333333;
+//   --ion-color-background: #f9f9f9;
+//   --ion-color-text: #333333;
 
-  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
+//   --ion-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+// }
 
-.large-text {
-  --ion-font-size-base: 18px;
-}
+// .large-text {
+//   --ion-font-size-base: 18px;
+// }
 
-.high-contrast {
-  --ion-color-primary: #2d7d6b;
-  --ion-color-secondary: #d4761a;
-  --ion-color-text: #000000;
-}
+// .high-contrast {
+//   --ion-color-primary: #2d7d6b;
+//   --ion-color-secondary: #d4761a;
+//   --ion-color-text: #000000;
+// }
 
-.primary-button {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-  --border-radius: 12px;
-  --padding-start: 24px;
-  --padding-end: 24px;
-  --padding-top: 16px;
-  --padding-bottom: 16px;
-  font-size: 16px;
-  font-weight: 600;
-  min-height: 56px;
-}
+// .primary-button {
+//   --background: var(--ion-color-primary);
+//   --color: var(--ion-color-primary-contrast);
+//   --border-radius: 12px;
+//   --padding-start: 24px;
+//   --padding-end: 24px;
+//   --padding-top: 16px;
+//   --padding-bottom: 16px;
+//   font-size: 16px;
+//   font-weight: 600;
+//   min-height: 56px;
+// }
 
-.secondary-button {
-  --background: var(--ion-color-secondary);
-  --color: var(--ion-color-secondary-contrast);
-  --border-radius: 12px;
-  --padding-start: 24px;
-  --padding-end: 24px;
-  --padding-top: 16px;
-  --padding-bottom: 16px;
-  font-size: 16px;
-  font-weight: 600;
-  min-height: 56px;
-}
+// .secondary-button {
+//   --background: var(--ion-color-secondary);
+//   --color: var(--ion-color-secondary-contrast);
+//   --border-radius: 12px;
+//   --padding-start: 24px;
+//   --padding-end: 24px;
+//   --padding-top: 16px;
+//   --padding-bottom: 16px;
+//   font-size: 16px;
+//   font-weight: 600;
+//   min-height: 56px;
+// }
 
-.card {
-  --background: #ffffff;
-  --color: var(--ion-color-text);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 16px;
-  padding: 20px;
-}
+// .card {
+//   --background: #ffffff;
+//   --color: var(--ion-color-text);
+//   border-radius: 16px;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   margin: 16px;
+//   padding: 20px;
+// }
 
-.progress-bar {
-  --background: #e0e0e0;
-  --progress-background: var(--ion-color-primary);
-  height: 8px;
-  border-radius: 4px;
-}
+// .progress-bar {
+//   --background: #e0e0e0;
+//   --progress-background: var(--ion-color-primary);
+//   height: 8px;
+//   border-radius: 4px;
+// }
