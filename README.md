@@ -1,189 +1,82 @@
-﻿# Brain Power - Holistic Gym for the Body, Mind & Brain
+﻿# Brain Power App
 
-A comprehensive Ionic Angular application designed specifically for seniors, providing holistic wellness exercises, AI-powered guidance, and health knowledge.
+A holistic wellness application designed for seniors, featuring brain training exercises, breathing techniques, and wellness guidance.
 
 ## Features
 
-### Core Functionality
-- **Daily Routine Exercises**: Breathing exercises and memory games
-- **AI Assistant**: Stubbed chat interface with canned responses for sleep, stress, and pain management
-- **Goals & Challenges**: Trackable daily goals with progress monitoring
-- **Health Knowledge**: Educational articles on nutrition, anxiety, sleep, and Feldenkrais
-- **Contact & Support**: FAQ and support information
+- **Language Support**: Hebrew and English with RTL support
+- **Personal Information**: User profile management with validation
+- **Daily Routines**: Breathing exercises, memory games, and movement activities
+- **AI Assistant**: Personalized wellness guidance
+- **Goals & Challenges**: Progress tracking and goal setting
+- **Health Knowledge**: Educational articles and tips
+- **Accessibility**: Designed with seniors in mind
 
-### Accessibility Features
-- **Large Text Mode**: Toggle for increased font sizes
-- **High Contrast Mode**: Enhanced color contrast for better visibility
-- **Senior-Friendly UI**: Large buttons, clear typography, and intuitive navigation
-- **Offline Support**: All features work without internet connection
-
-### Design System
-- **Primary Color**: #40bca4 (Teal)
-- **Secondary Color**: #EE8621 (Orange)
-- **Background**: #f9f9f9
-- **Text**: #333333
-- **Typography**: System fonts with accessibility scaling
-
-## Project Structure
-
-```
-src/
- app/
-    components/           # All screen components
-       splash/          # Splash screen with auto-navigation
-       register/        # User registration form
-       home/            # Main menu with 5 primary buttons
-       intro-daily-routine/  # Routine explanation
-       lets-begin/      # Exercise selection and progress
-       ai-assistant/    # Chat interface
-       goals/           # Goals tracking
-       knowledge/       # Health articles
-       contact/         # Support and FAQ
-       settings/        # App preferences
-    services/            # Core services
-       storage.service.ts      # localStorage wrapper
-       data.service.ts         # Mock data and profile management
-       chat.service.ts         # Stubbed AI responses
-       notifications.service.ts # Reminder management
-    app.config.ts        # App configuration
-    app.routes.ts        # Routing configuration
-    app.component.ts     # Root component
- shared/
-    components/          # Reusable components
-       primary-button/  # Styled button component
-       card/           # Card container component
-       progress-bar/   # Progress indicator
-    styles/
-        theme.css        # CSS variables and global styles
- main.ts                 # Application bootstrap
-```
-
-## Getting Started
+## Development
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- Ionic CLI
+
+- Node.js 18+
+- npm
 
 ### Installation
 
-1. **Install Ionic CLI** (if not already installed):
-   ```bash
-   npm install -g @ionic/cli
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run Development Server**:
-   ```bash
-   ionic serve
-   ```
-
-4. **Build for Production**:
-   ```bash
-   ionic build
-   ```
-
-### Adding Capacitor for Mobile Builds
-
-To build for Android/iOS:
-
-1. **Install Capacitor**:
-   ```bash
-   npm install @capacitor/core @capacitor/cli
-   ionic integrations enable capacitor
-   ```
-
-2. **Add Platform**:
-   ```bash
-   ionic capacitor add android
-   ionic capacitor add ios
-   ```
-
-3. **Build and Sync**:
-   ```bash
-   ionic build
-   ionic capacitor sync
-   ```
-
-4. **Open in Native IDE**:
-   ```bash
-   ionic capacitor open android
-   ionic capacitor open ios
-   ```
-
-## Key Components
-
-### Home Component
-Displays 5 main navigation buttons in exact order:
-1. Intro to Daily Routine Exercises
-2. Let's Begin  Daily Routine
-3. Automated AI Answer Engine
-4. Goals & Challenges
-5. Health Knowledge
-
-### Services Architecture
-
-- **StorageService**: Handles localStorage operations with type safety
-- **DataService**: Manages mock data, profiles, and exercise completion tracking
-- **ChatService**: Provides canned AI responses for common health queries
-- **NotificationsService**: Manages reminder scheduling (stubbed for MVP)
-
-### Data Models
-
-```typescript
-interface Profile {
-  name: string;
-  age: number;
-  email: string;
-  phone: string;
-}
-
-interface Completion {
-  date: string;
-  exerciseId: string;
-  level: 'beginner' | 'advanced' | 'grand';
-  durationSec: number;
-  score?: number;
-}
-
-interface Goal {
-  id: string;
-  title: string;
-  done: boolean;
-  dueDate?: string;
-}
+```bash
+npm install
 ```
 
-## Development Notes
+### Development Server
 
-- **Standalone Components**: All components use Angular 18 standalone architecture
-- **No Backend**: All data is stored locally using localStorage
-- **Mock AI**: Chat responses are rule-based, not real AI
-- **Accessibility First**: Designed with seniors and accessibility in mind
-- **Offline Ready**: No network dependencies
+```bash
+npm start
+```
 
-## Testing
+### Build for Production
 
-The app includes manual testing scenarios:
-- Home shows 5 buttons in exact order
-- Exercise completion writes to storage and updates progress
-- Goals persist across app reloads
-- AI assistant returns appropriate canned responses
-- Settings toggles affect UI appearance
+```bash
+npm run build
+```
 
-## Future Enhancements
+### Build for GitHub Pages
 
-- Real AI integration
-- Push notifications
-- Cloud data sync
-- Additional exercise types
-- Social features
-- Advanced analytics
+```bash
+npm run build:github-pages
+```
 
-## Support
+## Deployment
 
-For questions or support, use the Contact & Support section within the app or refer to the FAQ.
+This app is configured for deployment to GitHub Pages at `https://yerushalmi-rl.com/holistic-gym-app`.
+
+### Automatic Deployment
+
+The app automatically deploys when changes are pushed to the `main` branch via GitHub Actions.
+
+### Manual Deployment
+
+1. Build the app for GitHub Pages:
+   ```bash
+   npm run build:github-pages
+   ```
+
+2. The built files will be in the `dist/brain-power` directory
+
+3. Deploy these files to your GitHub Pages repository
+
+## Configuration
+
+- **Base URL**: `/holistic-gym-app/` (configured in angular.json)
+- **Custom Domain**: `yerushalmi-rl.com` (configured via CNAME file)
+- **Routing**: SPA routing handled via 404.html redirect
+
+## Technology Stack
+
+- **Angular 18**: Frontend framework
+- **Ionic**: Mobile-first UI components
+- **TypeScript**: Type-safe JavaScript
+- **CSS3**: Modern styling with gradients and animations
+- **GitHub Pages**: Static site hosting
+- **GitHub Actions**: CI/CD pipeline
+
+## License
+
+MIT License

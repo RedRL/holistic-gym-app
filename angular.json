@@ -21,7 +21,9 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/CNAME",
+              "src/404.html"
             ],
             "styles": [
               "src/shared/styles/theme.css"
@@ -44,6 +46,22 @@
               ],
               "outputHashing": "all"
             },
+                "github-pages": {
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kb",
+                      "maximumError": "1mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "2kb",
+                      "maximumError": "4kb"
+                    }
+                  ],
+                  "outputHashing": "all",
+                  "baseHref": "/holistic-gym-app/"
+                },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
