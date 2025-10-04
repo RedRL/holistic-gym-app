@@ -51,6 +51,8 @@ html, body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 :focus-visible { 
@@ -199,6 +201,8 @@ html, body {
   width: 100%;
   margin: 0 auto;
   color: #fff;
+  overflow-y: auto;
+  min-height: calc(100vh - 120px);
 }
 
 .content h2, .content h3, .content h4 {
@@ -414,4 +418,17 @@ label {
 /* Flip back arrow direction in Hebrew (RTL) */
 .lang-he .app-header .icon-btn:first-child .icon {
   transform: scaleX(-1);
+}
+
+/* Ionic page scrolling fix */
+ion-app, ion-content, .ion-page {
+  overflow-y: auto !important;
+  height: 100vh !important;
+}
+
+/* Ensure main content can scroll */
+main.content, section.content {
+  overflow-y: auto;
+  height: auto;
+  min-height: calc(100vh - 120px);
 }
