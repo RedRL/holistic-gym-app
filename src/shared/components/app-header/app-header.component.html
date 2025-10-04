@@ -1,11 +1,23 @@
 <header class="app-header">
-  <button *ngIf="showBack" class="icon-btn" (click)="goBack()" aria-label="Go back">
-    <span class="icon">arrow_back</span>
-  </button>
+  <div class="header-left">
+    <button *ngIf="showBack" class="icon-btn" (click)="goBack()" aria-label="Go back">
+      <span class="icon">arrow_back</span>
+    </button>
+    
+    <div *ngIf="showUserInfo && !isGuest && userName" class="user-name">
+      {{ userName }}
+    </div>
+  </div>
 
   <h1>{{ title | t }}</h1>
 
-  <button *ngIf="showHome" class="icon-btn" (click)="goHome()" aria-label="Go to home">
-    <span class="icon">home</span>
-  </button>
+  <div class="header-right">
+    <button *ngIf="showUserInfo" class="icon-btn" (click)="goToPersonalInfo()" aria-label="Personal info">
+      <span class="icon">person</span>
+    </button>
+    
+    <button *ngIf="showHome" class="icon-btn" (click)="goHome()" aria-label="Go to home">
+      <span class="icon">home</span>
+    </button>
+  </div>
 </header> 

@@ -14,6 +14,7 @@ export const routes: Routes = [
   { path: 'goals', loadComponent: () => import('./app/components/goals/goals.component').then(m => m.GoalsComponent) },
   { path: 'knowledge', loadComponent: () => import('./app/components/knowledge/knowledge.component').then(m => m.KnowledgeComponent) },
   { path: 'contact', loadComponent: () => import('./app/components/contact/contact.component').then(m => m.ContactComponent) },
+  { path: 'personal-info', loadComponent: () => import('./app/components/personal-info/personal-info.component').then(m => m.PersonalInfoComponent) },
   { path: 'settings', loadComponent: () => import('./app/components/settings/settings.component').then(m => m.SettingsComponent) },
   { path: '**', redirectTo: '/language' }
 ];
