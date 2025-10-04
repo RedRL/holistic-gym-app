@@ -3,7 +3,7 @@
   --text: #ffffff;
 
   /* Vibrant brand colors */
-  --primary: #F59E0B;           /* bright orange for buttons/accents */
+  --primary: #D97706;           /* darker orange for buttons/accents */
   --brand-teal: #10B981;        /* emerald green */
   --brand-orange: #F97316;      /* vibrant orange */
 
@@ -11,7 +11,7 @@
   --tile-1: linear-gradient(135deg, #EF4444 0%, #F97316 100%);     /* red to orange */
   --tile-2: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);     /* purple to pink */
   --tile-3: linear-gradient(135deg, #10B981 0%, #84CC16 100%);     /* green to lime */
-  --tile-4: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);     /* orange to yellow */
+  --tile-4: linear-gradient(135deg, #D97706 0%, #FCD34D 100%);     /* darker orange to yellow */
   --tile-5: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);     /* cyan to blue */
 
   --radius: 16px;
@@ -60,7 +60,7 @@ html, body {
 
 /* Primary button */
 .btn-primary {
-  background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+  background: linear-gradient(135deg, #D97706 0%, #F97316 100%);
   color: #fff;
   border: none;
   border-radius: 16px;
@@ -192,33 +192,48 @@ html, body {
   color: #fff;
 }
 
+/* Content */
+.content { 
+  padding: 16px; 
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.content h2, .content h3, .content h4 {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.content p {
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
 /* Grid */
 .home-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  padding: 16px;
-}
-
-@media (max-width: 420px) { 
-  .home-grid { 
-    grid-template-columns: 1fr; 
-  } 
+  grid-template-columns: 1fr;
+  gap: 25px;
+  padding: 30px;
 }
 
 .contact-link { 
   display: block; 
   text-align: center; 
   margin: 12px 0 28px; 
-  color: var(--primary); 
+  color: rgba(255,255,255,0.8); 
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
   padding: 12px;
   font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .contact-link:hover {
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -230,7 +245,6 @@ html, body {
   font-size: 22px; 
   line-height: 1; 
   vertical-align: -2px; 
-  margin-right: 6px; 
   font-variation-settings:
     'FILL' 1,
     'wght' 400,
@@ -243,11 +257,38 @@ html, body {
 
 /* Cards + sticky CTA */
 .card, .section-card { 
-  background: #fff; 
+  background: rgba(255,255,255,0.95); 
+  backdrop-filter: blur(20px);
   border-radius: var(--radius); 
   padding: 12px 14px; 
-  box-shadow: var(--shadow); 
-  margin-bottom: 12px; 
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2); 
+  margin-bottom: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #333;
+}
+
+.card h3, .section-card h3,
+.card h4, .section-card h4,
+.card p, .section-card p {
+  color: #333;
+  text-shadow: none;
+}
+
+/* Form inputs */
+input, textarea, select {
+  background: rgba(255,255,255,0.95) !important;
+  color: #333 !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #666 !important;
+}
+
+/* Labels */
+label {
+  color: rgba(255,255,255,0.9) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .sticky-cta { 
@@ -305,7 +346,7 @@ html, body {
 
 /* Content padding */
 .content { 
-  padding: 16px; 
+  padding: 50px 30px 40px;
 }
 
 /* Muted text */
@@ -365,7 +406,6 @@ html, body {
     'GRAD' 0,
     'opsz' 24;
   margin-right: 0;
-  margin-left: 6px;
   display: inline-block;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

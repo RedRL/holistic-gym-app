@@ -8,7 +8,7 @@
         <strong>{{ exercise.title }}</strong>
         <div>{{ exercise.description }}</div>
       </div>
-      <div>{{ exercise.duration }} min</div>
+      <div>{{ exercise.duration }} {{'minutes'|t}}</div>
     </div>
     <button class="btn-primary" (click)="startExercise(exercise)">{{'start_exercise'|t}} {{ exercise.title }}</button>
   </div>

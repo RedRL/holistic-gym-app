@@ -1,7 +1,13 @@
-﻿/* Most styles are in global theme.css */
+﻿/* Override Ionic's space-between layout */
+::ng-deep .ion-page {
+  justify-content: flex-start !important;
+}
+
+/* Most styles are in global theme.css */
 
 .contact-intro {
   margin-bottom: 20px;
+  margin-top: -10px;
 }
 
 .contact-intro h2 {
@@ -9,20 +15,20 @@
   margin: 0 0 8px;
   font-weight: 800;
   text-transform: none;
-  }
-  
-  .contact-options {
-  margin-bottom: 20px;
-  }
-  
+}
+
+.contact-options {
+  margin-bottom: 40px;
+}
+
 .section-card h3 {
   font-size: 1.2rem;
   margin: 0 0 8px;
   font-weight: 700;
   text-transform: none;
-  }
-  
-  .faq-section {
+}
+
+.faq-section {
   margin-bottom: 20px;
 }
 
@@ -46,15 +52,15 @@ details summary {
 
 details summary::-webkit-details-marker {
   display: none;
-  }
-  
+}
+
 details summary::before {
-  content: '▶';
+  content: "▶";
   display: inline-block;
   margin-right: 8px;
   transition: transform 0.2s;
-  }
-  
+}
+
 details[open] summary::before {
   transform: rotate(90deg);
 }
@@ -63,13 +69,64 @@ details summary:hover {
   text-decoration: underline;
 }
 
+/* Hebrew RTL styles with high specificity */
+:host-context(.lang-he) details summary::before {
+  margin-left: 8px;
+  margin-right: 0;
+  transform: scaleX(-1);
+}
+
+:host-context(.lang-he) details[open] summary::before {
+  transform: scaleX(-1) rotate(90deg);
+}
+
 .faq-answer {
-  padding: 12px 0 8px 24px;
+  padding: 8px 24px 10px;
   line-height: 1.6;
   color: #333;
-    }
-    
+}
+
+
 .support-info p {
-      margin: 4px 0;
+  margin: 4px 0;
   line-height: 1.6;
+}
+
+/* WhatsApp button styling */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 18px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(0);
+}
+
+.btn-whatsapp:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.5);
+  outline-offset: 2px;
+}
+
+.btn-whatsapp::before {
+  content: "📱";
+  font-size: 20px;
 }
