@@ -147,7 +147,7 @@ const en: Dict = {
 
 const he: Dict = {
   app_title: 'כוח המוח',
-  language_title: 'בחר שפה',
+  language_title: 'בחרו שפה',
   hebrew: 'עברית',
   english: 'English',
   register_title: 'השלמת הרשמה',
