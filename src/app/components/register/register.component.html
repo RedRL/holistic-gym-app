@@ -1,26 +1,129 @@
 ﻿<app-header [title]="'register_title'|t"></app-header>
 
 <form class="reg" [formGroup]="form" (ngSubmit)="submit()">
-  <label>
-    {{'full_name'|t}}
-    <input formControlName="fullName" />
-  </label>
+  <div class="form-group">
+    <div class="label-row">
+      <label for="firstName">{{'first_name'|t}} <span class="required">*</span></label>
+      <div class="error-message" *ngIf="getFieldError('firstName')">
+        {{ getFieldError('firstName') }}
+      </div>
+    </div>
+    <input 
+      id="firstName"
+      type="text" 
+      formControlName="firstName" 
+      [class.error]="form.get('firstName')?.invalid && form.get('firstName')?.touched"
+      placeholder="{{'enter_first_name'|t}}"
+      maxlength="12"
+      (keypress)="onNameKeyPress($event)"
+    />
+  </div>
 
-  <label>
-    {{'age'|t}}
-    <input type="number" formControlName="age" />
-  </label>
+  <div class="form-group">
+    <div class="label-row">
+      <label for="lastName">{{'last_name'|t}}</label>
+      <div class="error-message" *ngIf="getFieldError('lastName')">
+        {{ getFieldError('lastName') }}
+      </div>
+    </div>
+    <input 
+      id="lastName"
+      type="text" 
+      formControlName="lastName" 
+      [class.error]="form.get('lastName')?.invalid && form.get('lastName')?.touched"
+      placeholder="{{'enter_last_name'|t}}"
+      (keypress)="onNameKeyPress($event)"
+    />
+  </div>
 
-  <label>
-    {{'email'|t}}
-    <input type="email" formControlName="email" />
-  </label>
+  <div class="form-group">
+    <div class="label-row">
+      <label for="age">{{'age'|t}}</label>
+      <div class="error-message" *ngIf="getFieldError('age')">
+        {{ getFieldError('age') }}
+      </div>
+    </div>
+    <input 
+      id="age"
+      type="number" 
+      formControlName="age" 
+      [class.error]="form.get('age')?.invalid && form.get('age')?.touched"
+      placeholder="{{'enter_age'|t}}"
+      min="1" 
+      max="120"
+      (keypress)="onAgeKeyPress($event)"
+    />
+  </div>
 
-  <label>
-    {{'phone'|t}}
-    <input formControlName="phone" />
-  </label>
+  <div class="form-group">
+    <div class="label-row">
+      <label for="weight">{{'weight'|t}}</label>
+      <div class="error-message" *ngIf="getFieldError('weight')">
+        {{ getFieldError('weight') }}
+      </div>
+    </div>
+    <input 
+      id="weight"
+      type="number" 
+      formControlName="weight" 
+      [class.error]="form.get('weight')?.invalid && form.get('weight')?.touched"
+      placeholder="{{'enter_weight'|t}}"
+      min="1" 
+      max="300"
+      (keypress)="onWeightKeyPress($event)"
+    />
+  </div>
 
-  <button class="btn-primary" type="submit">{{'continue'|t}}</button>
+  <div class="form-group">
+    <div class="label-row">
+      <label for="height">{{'height'|t}}</label>
+      <div class="error-message" *ngIf="getFieldError('height')">
+        {{ getFieldError('height') }}
+      </div>
+    </div>
+        <input 
+          id="height"
+          type="text" 
+          formControlName="height" 
+          [class.error]="form.get('height')?.invalid && form.get('height')?.touched"
+          placeholder="{{'enter_height'|t}}"
+          (keypress)="onHeightKeyPress($event)"
+        />
+  </div>
+
+  <div class="form-group">
+    <div class="label-row">
+      <label for="email">{{'email'|t}}</label>
+      <div class="error-message" *ngIf="getFieldError('email')">
+        {{ getFieldError('email') }}
+      </div>
+    </div>
+    <input 
+      id="email"
+      type="email" 
+      formControlName="email" 
+      [class.error]="form.get('email')?.invalid && form.get('email')?.touched"
+      placeholder="{{'enter_email'|t}}"
+    />
+  </div>
+
+  <div class="form-group">
+    <div class="label-row">
+      <label for="phone">{{'phone'|t}} <span class="required">*</span></label>
+      <div class="error-message" *ngIf="getFieldError('phone')">
+        {{ getFieldError('phone') }}
+      </div>
+    </div>
+    <input 
+      id="phone"
+      type="tel" 
+      formControlName="phone" 
+      [class.error]="form.get('phone')?.invalid && form.get('phone')?.touched"
+      placeholder="{{'enter_phone'|t}}"
+      (keypress)="onPhoneKeyPress($event)"
+    />
+  </div>
+
+  <button class="btn-primary" type="submit" [disabled]="form.invalid">{{'continue'|t}}</button>
   <button type="button" class="guest" (click)="asGuest()">{{'continue_guest'|t}}</button>
 </form>

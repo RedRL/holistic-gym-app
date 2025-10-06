@@ -16,8 +16,10 @@ import { TranslateService } from '../../shared/services/translate.service';
 export class PersonalInfoComponent implements OnInit {
   form = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(12), Validators.pattern(/^[a-zA-Z\u0590-\u05FF\s\'\-\"]+$/)]],
-    lastName: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-Z\u0590-\u05FF\s\'\-\"]+$/)]],
+    lastName: ['', [Validators.pattern(/^[a-zA-Z\u0590-\u05FF\s\'\-\"]*$/)]],
     age: ['', [Validators.min(1), Validators.max(120)]],
+    weight: ['', [Validators.min(1), Validators.max(300)]],
+    height: ['', [Validators.min(0.5), Validators.max(3.0)]],
     email: ['', [Validators.email]],
     phone: ['', [Validators.required, Validators.pattern(/^[0-9\s\-\+\(\)]+$/)]]
   });
@@ -46,6 +48,8 @@ export class PersonalInfoComponent implements OnInit {
           firstName: firstName,
           lastName: lastName,
           age: profile.age || '',
+          weight: profile.weight || '',
+          height: profile.height || '',
           email: profile.email || '',
           phone: profile.phone || ''
         });
@@ -63,10 +67,12 @@ export class PersonalInfoComponent implements OnInit {
 
     const formData = this.form.value;
     const profileData = {
-      fullName: `${formData.firstName} ${formData.lastName}`.trim(),
+      fullName: `${formData.firstName} ${formData.lastName || ''}`.trim(),
       firstName: formData.firstName,
       lastName: formData.lastName,
       age: formData.age,
+      weight: formData.weight,
+      height: formData.height,
       email: formData.email,
       phone: formData.phone
     };
@@ -106,7 +112,15 @@ export class PersonalInfoComponent implements OnInit {
         }
       }
       if (field.errors['min'] || field.errors['max']) {
-        return this.translateService.t('invalid_age');
+        if (fieldName === 'age') {
+          return this.translateService.t('invalid_age');
+        }
+        if (fieldName === 'weight') {
+          return this.translateService.t('invalid_weight');
+        }
+        if (fieldName === 'height') {
+          return this.translateService.t('invalid_height');
+        }
       }
     }
     return '';
@@ -128,6 +142,18 @@ export class PersonalInfoComponent implements OnInit {
   onAgeKeyPress(event: KeyboardEvent): boolean {
     const char = event.key;
     const allowedChars = /^[0-9]$/;
+    return allowedChars.test(char) || event.key === 'Backspace' || event.key === 'Delete' || event.key === 'Tab';
+  }
+
+  onWeightKeyPress(event: KeyboardEvent): boolean {
+    const char = event.key;
+    const allowedChars = /^[0-9]$/;
+    return allowedChars.test(char) || event.key === 'Backspace' || event.key === 'Delete' || event.key === 'Tab';
+  }
+
+  onHeightKeyPress(event: KeyboardEvent): boolean {
+    const char = event.key;
+    const allowedChars = /^[0-9.]$/;
     return allowedChars.test(char) || event.key === 'Backspace' || event.key === 'Delete' || event.key === 'Tab';
   }
 }
