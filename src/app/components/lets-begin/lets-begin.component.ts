@@ -81,4 +81,8 @@ export class LetsBeginComponent implements OnInit {
     this.dataService.addCompletion(completion);
     this.updateProgress();
   }
+
+  startMusicSession() {
+    this.router.navigate(['/music-session']);
+  }
 }

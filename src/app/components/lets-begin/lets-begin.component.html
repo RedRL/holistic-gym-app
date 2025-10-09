@@ -1,6 +1,19 @@
 ﻿<app-header [title]="'lets_begin'|t"></app-header>
 
 <section class="content">
+  <!-- Music Session Box -->
+  <div class="music-session-box">
+    <div class="music-header">
+      <span class="icon">music_note</span>
+      <h3>{{'music_session'|t}}</h3>
+    </div>
+    <p>{{'music_session_description'|t}}</p>
+    <button class="btn-music" (click)="startMusicSession()">
+      <span class="icon">play_arrow</span>
+      {{'start_music_session'|t}}
+    </button>
+  </div>
+
   <h3>{{'todays_activities'|t}}</h3>
   <div class="card" *ngFor="let exercise of exercises">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">

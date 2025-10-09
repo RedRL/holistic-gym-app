@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <h1>{{ title | t }}</h1>
+  <h1 [innerHTML]="title | t"></h1>
 
   <div class="header-right">
     <button *ngIf="showUserInfo" class="icon-btn" (click)="goToPersonalInfo()" aria-label="Personal info">
