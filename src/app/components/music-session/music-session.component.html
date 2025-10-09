@@ -6,22 +6,15 @@
       <video 
         #musicVideo
         class="music-video"
-        (ended)="onVideoEnd()"
-        poster="assets/images/music-session-poster.jpg">
-        <source src="assets/videos/Mozart-heb.mp4" type="video/mp4">
+        controls
+        (timeupdate)="onTimeUpdate()"
+        (loadedmetadata)="onVideoLoaded()"
+        (play)="onPlay()"
+        (pause)="onPause()"
+        crossorigin="anonymous">
+        <source src="https://brain-power-app.s3.eu-north-1.amazonaws.com/Mozart-heb.mp4" type="video/mp4">
         <p>{{'video_not_supported'|t}}</p>
       </video>
-      
-      <!-- Start Video Button Overlay -->
-      <div class="play-button-overlay" *ngIf="showPlayButton" (click)="playVideo()">
-        <button class="btn-play">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.9)" />
-            <path d="M10 8L16 12L10 16V8Z" fill="#333" />
-          </svg>
-          <span>{{'start_video'|t}}</span>
-        </button>
-      </div>
     </div>
     
     <!-- Custom Video Controls -->
@@ -76,6 +69,28 @@
     </div>
   </div>
   
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+    <div class="progress-text">
+      <span>{{'video_progress'|t}}: {{progressPercentage | number:'1.0-0'}}%</span>
+    </div>
+  </div>
+
+  <!-- Congratulations Message -->
+  <div class="congratulations-overlay" *ngIf="showCongratulations">
+    <div class="congratulations-card">
+      <div class="congrats-icon">🎉</div>
+      <h2>{{'congratulations'|t}}</h2>
+      <p>{{'video_completed_message'|t}}</p>
+      <button class="btn-primary" (click)="goBack()">
+        {{'continue'|t}}
+      </button>
+    </div>
+  </div>
+
   <!-- Text content below video in normal mode -->
   <div class="session-info">
     <h3>{{'music_session'|t}}</h3>

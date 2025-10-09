@@ -1,9 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 import { TPipe } from '../../shared/pipes/t.pipe';
 import { DataService, Exercise, Completion } from '../../services/data.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lets-begin',
@@ -18,6 +19,7 @@ export class LetsBeginComponent implements OnInit {
   completedToday: number = 0;
   totalExercises: number = 2;
   todayProgress: number = 0;
+  isMusicSessionCompleted: boolean = false;
 
   constructor(
     private router: Router,
@@ -30,6 +32,16 @@ export class LetsBeginComponent implements OnInit {
     this.selectedLevel = (stored === 'advanced' || stored === 'grand') ? stored : 'beginner';
     this.loadExercises();
     this.updateProgress();
+    this.checkMusicSessionCompletion();
+    
+    // Listen for navigation events to refresh completion status
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        if ((event as NavigationEnd).url === '/lets-begin') {
+          this.checkMusicSessionCompletion();
+        }
+      });
   }
 
   loadExercises() {
@@ -80,6 +92,12 @@ export class LetsBeginComponent implements OnInit {
     
     this.dataService.addCompletion(completion);
     this.updateProgress();
+  }
+
+  checkMusicSessionCompletion() {
+    const today = new Date().toISOString().split('T')[0];
+    const completedDate = localStorage.getItem('musicSessionCompleted');
+    this.isMusicSessionCompleted = completedDate === today;
   }
 
   startMusicSession() {

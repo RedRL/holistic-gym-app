@@ -2,15 +2,15 @@
 
 <section class="content">
   <!-- Music Session Box -->
-  <div class="music-session-box">
+  <div class="music-session-box" [class.completed]="isMusicSessionCompleted">
     <div class="music-header">
-      <span class="icon">music_note</span>
+      <span class="icon">{{ isMusicSessionCompleted ? 'check_circle' : 'music_note' }}</span>
       <h3>{{'music_session'|t}}</h3>
     </div>
     <p>{{'music_session_description'|t}}</p>
-    <button class="btn-music" (click)="startMusicSession()">
-      <span class="icon">play_arrow</span>
-      {{'start_music_session'|t}}
+    <button class="btn-music" [class.btn-music-completed]="isMusicSessionCompleted" (click)="startMusicSession()">
+      <span class="icon">{{ isMusicSessionCompleted ? 'refresh' : 'play_arrow' }}</span>
+      {{ isMusicSessionCompleted ? ('retake_music_session'|t) : ('start_music_session'|t) }}
     </button>
   </div>
 

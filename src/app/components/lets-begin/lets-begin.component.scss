@@ -10,6 +10,12 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
+.music-session-box.completed {
+  background: linear-gradient(135deg, rgba(76,175,80,0.15) 0%, rgba(76,175,80,0.1) 100%);
+  border: 1px solid rgba(76,175,80,0.3);
+  opacity: 0.8;
+}
+
 .music-header {
   display: flex;
   align-items: center;
@@ -72,6 +78,18 @@
 
 .btn-music .icon {
   font-size: 1.2rem;
+}
+
+.btn-music-completed {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%) !important;
+  color: #fff !important;
+  opacity: 0.9;
+}
+
+.btn-music-completed:hover {
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76,175,80,0.4);
 }
 
 .content h3 {

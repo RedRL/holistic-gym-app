@@ -14,9 +14,12 @@ import { TranslateService } from '../../shared/services/translate.service';
 })
 export class MusicSessionComponent {
   @ViewChild('musicVideo') musicVideo!: ElementRef<HTMLVideoElement>;
-  @ViewChild('videoContainer') videoContainer!: ElementRef<HTMLDivElement>;
   
-  showPlayButton = true;
+  maxWatchedTime = 0;
+  currentTime = 0;
+  duration = 0;
+  progressPercentage = 0;
+  showCongratulations = false;
   isPlaying = false;
   isFullscreen = false;
 
@@ -25,27 +28,44 @@ export class MusicSessionComponent {
     public translateService: TranslateService
   ) {}
 
-  playVideo() {
+  onVideoLoaded() {
     const video = this.musicVideo.nativeElement;
-    video.play().then(() => {
-      this.showPlayButton = false;
-      this.isPlaying = true;
-      console.log('Video started playing');
-    }).catch((error) => {
-      console.error('Error playing video:', error);
-      alert('Unable to play video. Please try again.');
-    });
+    this.duration = video.duration;
+  }
+
+  onTimeUpdate() {
+    const video = this.musicVideo.nativeElement;
+    this.currentTime = video.currentTime;
+    
+    // Update max watched time (only moves forward)
+    if (this.currentTime > this.maxWatchedTime) {
+      this.maxWatchedTime = this.currentTime;
+    }
+    
+    // Calculate progress percentage based on max watched time
+    this.progressPercentage = (this.maxWatchedTime / this.duration) * 100;
+    
+    // Check if video is completed (watched to the end)
+    if (this.maxWatchedTime >= this.duration - 1 && !this.showCongratulations) {
+      this.showCongratulations = true;
+      this.markMusicSessionCompleted();
+    }
+  }
+
+  onPlay() {
+    this.isPlaying = true;
+  }
+
+  onPause() {
+    this.isPlaying = false;
   }
 
   togglePlayPause() {
     const video = this.musicVideo.nativeElement;
     if (video.paused) {
       video.play();
-      this.isPlaying = true;
-      this.showPlayButton = false;
     } else {
       video.pause();
-      this.isPlaying = false;
     }
   }
 
@@ -55,17 +75,9 @@ export class MusicSessionComponent {
   }
 
   toggleFullscreen() {
-    const container = this.videoContainer.nativeElement;
-    const video = this.musicVideo.nativeElement;
+    const container = document.querySelector('.video-wrapper') as HTMLElement;
     
     if (!this.isFullscreen) {
-      // Rotate screen to landscape (for mobile devices)
-      if ((screen.orientation as any)?.lock) {
-        (screen.orientation as any).lock('landscape').catch((err: any) => {
-          console.log('Screen orientation lock not supported:', err);
-        });
-      }
-      
       // Enter fullscreen
       if (container.requestFullscreen) {
         container.requestFullscreen();
@@ -73,12 +85,8 @@ export class MusicSessionComponent {
         (container as any).webkitRequestFullscreen();
       } else if ((container as any).mozRequestFullScreen) {
         (container as any).mozRequestFullScreen();
-      } else if ((container as any).msRequestFullscreen) {
-        (container as any).msRequestFullscreen();
       }
       this.isFullscreen = true;
-      
-      // Don't auto-play - let user control playback
     } else {
       // Exit fullscreen
       if (document.exitFullscreen) {
@@ -87,26 +95,18 @@ export class MusicSessionComponent {
         (document as any).webkitExitFullscreen();
       } else if ((document as any).mozCancelFullScreen) {
         (document as any).mozCancelFullScreen();
-      } else if ((document as any).msExitFullscreen) {
-        (document as any).msExitFullscreen();
       }
       this.isFullscreen = false;
-      
-      // Unlock screen orientation
-      if ((screen.orientation as any)?.unlock) {
-        (screen.orientation as any).unlock();
-      }
     }
   }
 
-  goBack() {
-    this.router.navigate(['/lets-begin']);
+  markMusicSessionCompleted() {
+    // Mark music session as completed for today
+    const today = new Date().toISOString().split('T')[0];
+    localStorage.setItem('musicSessionCompleted', today);
   }
 
-  onVideoEnd() {
-    // Navigate back after video ends
-    console.log('Music session video ended');
-    this.isPlaying = false;
+  goBack() {
     this.router.navigate(['/lets-begin']);
   }
 }
