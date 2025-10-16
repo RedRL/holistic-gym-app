@@ -11,6 +11,8 @@ export const routes: Routes = [
   { path: 'intro-daily-routine', loadComponent: () => import('./app/components/intro-daily-routine/intro-daily-routine.component').then(m => m.IntroDailyRoutineComponent) },
   { path: 'lets-begin', loadComponent: () => import('./app/components/lets-begin/lets-begin.component').then(m => m.LetsBeginComponent) },
   { path: 'music-session', loadComponent: () => import('./app/components/music-session/music-session.component').then(m => m.MusicSessionComponent) },
+  { path: 'breathing-options', loadComponent: () => import('./app/components/breathing-options/breathing-options.component').then(m => m.BreathingOptionsComponent) },
+  { path: 'breathing-session', loadComponent: () => import('./app/components/breathing-session/breathing-session.component').then(m => m.BreathingSessionComponent) },
   { path: 'ai-assistant', loadComponent: () => import('./app/components/ai-assistant/ai-assistant.component').then(m => m.AiAssistantComponent) },
   { path: 'goals', loadComponent: () => import('./app/components/goals/goals.component').then(m => m.GoalsComponent) },
   { path: 'knowledge', loadComponent: () => import('./app/components/knowledge/knowledge.component').then(m => m.KnowledgeComponent) },

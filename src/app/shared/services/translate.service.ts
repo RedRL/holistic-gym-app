@@ -167,7 +167,15 @@ const en: Dict = {
   exercise_breathing_description: '5 minute guided breathing session',
   memory_game: 'Memory Game',
   exercise_memory_description: 'Pattern matching exercise',
-  minutes: 'min'
+  minutes: 'min',
+  // Breathing Options
+  choose_breathing_type: 'Choose Your Breathing Video',
+  select_video_preference: 'Select your preferred breathing exercise video type',
+  youtube_video: 'YouTube Video',
+  ai_youtube_video: 'AI YouTube Video',
+  ai_video: 'AI Video',
+  breathing_video_description: 'Follow along with this guided breathing exercise to improve your relaxation and focus.',
+  breathing_completed_message: 'You have successfully completed the breathing exercise. Well done!'
 };
 
 const he: Dict = {
@@ -336,7 +344,15 @@ const he: Dict = {
   exercise_breathing_description: 'תרגול נשימה מודרך של 5 דקות',
   memory_game: 'משחק זיכרון',
   exercise_memory_description: 'תרגיל התאמת דפוסים',
-  minutes: 'דק'
+  minutes: 'דק',
+  // Breathing Options
+  choose_breathing_type: 'בחרו את סרטון הנשימה שלכם',
+  select_video_preference: 'בחרו את סוג סרטון תרגיל הנשימה המועדף עליכם',
+  youtube_video: 'סרטון YouTube',
+  ai_youtube_video: 'סרטון YouTube של AI',
+  ai_video: 'סרטון AI',
+  breathing_video_description: 'עקבו אחר תרגיל הנשימה המודרך הזה כדי לשפר את ההרפיה והריכוז שלכם.',
+  breathing_completed_message: 'השלמתם בהצלחה את תרגיל הנשימה. כל הכבוד!'
 };
 
 @Injectable({ providedIn: 'root' })

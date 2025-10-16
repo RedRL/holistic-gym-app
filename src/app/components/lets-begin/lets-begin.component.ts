@@ -57,8 +57,8 @@ export class LetsBeginComponent implements OnInit {
   }
 
   startBreathingExercise(exercise: Exercise) {
-    // Navigate to breathing exercise component
-    this.router.navigate(['/breathing-exercise'], { 
+    // Navigate to breathing options component
+    this.router.navigate(['/breathing-options'], { 
       queryParams: { 
         duration: exercise.duration,
         level: this.selectedLevel 
